@@ -1,8 +1,8 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * supercharger-api
- * Superchanger API
+ * api-supercharger
+ * REST API Superchanger
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: ognjen.bostjancic@gmail.com

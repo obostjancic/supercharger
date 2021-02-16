@@ -1,8 +1,8 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * supercharger-api
- * Superchanger API
+ * api-supercharger
+ * REST API Superchanger
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: ognjen.bostjancic@gmail.com
@@ -24,182 +24,182 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 /**
  * 
  * @export
- * @interface Absence
+ * @interface Bar
  */
-export interface Absence {
+export interface Bar {
     /**
      * 
      * @type {number}
-     * @memberof Absence
+     * @memberof Bar
      */
     id: number;
     /**
      * 
      * @type {string}
-     * @memberof Absence
+     * @memberof Bar
      */
     created: string;
     /**
      * 
      * @type {string}
-     * @memberof Absence
+     * @memberof Bar
      */
     updated: string;
     /**
      * 
      * @type {number}
-     * @memberof Absence
+     * @memberof Bar
      */
     temp: number;
 }
 /**
  * 
  * @export
- * @interface CreateManyAbsenceDto
+ * @interface CreateManyBarDto
  */
-export interface CreateManyAbsenceDto {
+export interface CreateManyBarDto {
     /**
      * 
-     * @type {Array<Absence>}
-     * @memberof CreateManyAbsenceDto
+     * @type {Array<Bar>}
+     * @memberof CreateManyBarDto
      */
-    bulk: Array<Absence>;
+    bulk: Array<Bar>;
 }
 /**
  * 
  * @export
- * @interface CreateManyStudentDto
+ * @interface CreateManyFooDto
  */
-export interface CreateManyStudentDto {
+export interface CreateManyFooDto {
     /**
      * 
-     * @type {Array<Student>}
-     * @memberof CreateManyStudentDto
+     * @type {Array<Foo>}
+     * @memberof CreateManyFooDto
      */
-    bulk: Array<Student>;
+    bulk: Array<Foo>;
 }
 /**
  * 
  * @export
- * @interface GetManyAbsenceResponseDto
+ * @interface Foo
  */
-export interface GetManyAbsenceResponseDto {
-    /**
-     * 
-     * @type {Array<Absence>}
-     * @memberof GetManyAbsenceResponseDto
-     */
-    data: Array<Absence>;
+export interface Foo {
     /**
      * 
      * @type {number}
-     * @memberof GetManyAbsenceResponseDto
-     */
-    count: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof GetManyAbsenceResponseDto
-     */
-    total: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof GetManyAbsenceResponseDto
-     */
-    page: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof GetManyAbsenceResponseDto
-     */
-    pageCount: number;
-}
-/**
- * 
- * @export
- * @interface GetManyStudentResponseDto
- */
-export interface GetManyStudentResponseDto {
-    /**
-     * 
-     * @type {Array<Student>}
-     * @memberof GetManyStudentResponseDto
-     */
-    data: Array<Student>;
-    /**
-     * 
-     * @type {number}
-     * @memberof GetManyStudentResponseDto
-     */
-    count: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof GetManyStudentResponseDto
-     */
-    total: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof GetManyStudentResponseDto
-     */
-    page: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof GetManyStudentResponseDto
-     */
-    pageCount: number;
-}
-/**
- * 
- * @export
- * @interface Student
- */
-export interface Student {
-    /**
-     * 
-     * @type {number}
-     * @memberof Student
+     * @memberof Foo
      */
     id: number;
     /**
      * 
      * @type {string}
-     * @memberof Student
+     * @memberof Foo
      */
     created: string;
     /**
      * 
      * @type {string}
-     * @memberof Student
+     * @memberof Foo
      */
     updated: string;
     /**
      * 
      * @type {string}
-     * @memberof Student
+     * @memberof Foo
      */
     name: string;
 }
+/**
+ * 
+ * @export
+ * @interface GetManyBarResponseDto
+ */
+export interface GetManyBarResponseDto {
+    /**
+     * 
+     * @type {Array<Bar>}
+     * @memberof GetManyBarResponseDto
+     */
+    data: Array<Bar>;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetManyBarResponseDto
+     */
+    count: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetManyBarResponseDto
+     */
+    total: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetManyBarResponseDto
+     */
+    page: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetManyBarResponseDto
+     */
+    pageCount: number;
+}
+/**
+ * 
+ * @export
+ * @interface GetManyFooResponseDto
+ */
+export interface GetManyFooResponseDto {
+    /**
+     * 
+     * @type {Array<Foo>}
+     * @memberof GetManyFooResponseDto
+     */
+    data: Array<Foo>;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetManyFooResponseDto
+     */
+    count: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetManyFooResponseDto
+     */
+    total: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetManyFooResponseDto
+     */
+    page: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetManyFooResponseDto
+     */
+    pageCount: number;
+}
 
 /**
- * AbsenceApi - axios parameter creator
+ * BarApi - axios parameter creator
  * @export
  */
-export const AbsenceApiAxiosParamCreator = function (configuration?: Configuration) {
+export const BarApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * 
-         * @param {Absence} absence 
+         * @param {Bar} bar 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAbsence: async (absence: Absence, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'absence' is not null or undefined
-            assertParamExists('createAbsence', 'absence', absence)
-            const localVarPath = `/api/absences`;
+        createBar: async (bar: Bar, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'bar' is not null or undefined
+            assertParamExists('createBar', 'bar', bar)
+            const localVarPath = `/api/bars`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -218,7 +218,7 @@ export const AbsenceApiAxiosParamCreator = function (configuration?: Configurati
             setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(absence, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(bar, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -227,14 +227,14 @@ export const AbsenceApiAxiosParamCreator = function (configuration?: Configurati
         },
         /**
          * 
-         * @param {CreateManyAbsenceDto} createManyAbsenceDto 
+         * @param {CreateManyBarDto} createManyBarDto 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAbsences: async (createManyAbsenceDto: CreateManyAbsenceDto, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'createManyAbsenceDto' is not null or undefined
-            assertParamExists('createAbsences', 'createManyAbsenceDto', createManyAbsenceDto)
-            const localVarPath = `/api/absences/bulk`;
+        createBars: async (createManyBarDto: CreateManyBarDto, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'createManyBarDto' is not null or undefined
+            assertParamExists('createBars', 'createManyBarDto', createManyBarDto)
+            const localVarPath = `/api/bars/bulk`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -253,7 +253,7 @@ export const AbsenceApiAxiosParamCreator = function (configuration?: Configurati
             setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(createManyAbsenceDto, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(createManyBarDto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -269,10 +269,10 @@ export const AbsenceApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAbsence: async (id: number, fields?: Array<string>, join?: Array<string>, cache?: number, options: any = {}): Promise<RequestArgs> => {
+        getBar: async (id: number, fields?: Array<string>, join?: Array<string>, cache?: number, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('getAbsence', 'id', id)
-            const localVarPath = `/api/absences/{id}`
+            assertParamExists('getBar', 'id', id)
+            const localVarPath = `/api/bars/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -323,8 +323,8 @@ export const AbsenceApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAbsences: async (fields?: Array<string>, s?: string, filter?: Array<string>, or?: Array<string>, sort?: Array<string>, join?: Array<string>, limit?: number, offset?: number, page?: number, cache?: number, options: any = {}): Promise<RequestArgs> => {
-            const localVarPath = `/api/absences`;
+        getBars: async (fields?: Array<string>, s?: string, filter?: Array<string>, or?: Array<string>, sort?: Array<string>, join?: Array<string>, limit?: number, offset?: number, page?: number, cache?: number, options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/bars`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -393,10 +393,10 @@ export const AbsenceApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeAbsence: async (id: number, options: any = {}): Promise<RequestArgs> => {
+        removeBar: async (id: number, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('removeAbsence', 'id', id)
-            const localVarPath = `/api/absences/{id}`
+            assertParamExists('removeBar', 'id', id)
+            const localVarPath = `/api/bars/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -423,16 +423,16 @@ export const AbsenceApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * 
          * @param {number} id 
-         * @param {Absence} absence 
+         * @param {Bar} bar 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        replaceAbsence: async (id: number, absence: Absence, options: any = {}): Promise<RequestArgs> => {
+        replaceBar: async (id: number, bar: Bar, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('replaceAbsence', 'id', id)
-            // verify required parameter 'absence' is not null or undefined
-            assertParamExists('replaceAbsence', 'absence', absence)
-            const localVarPath = `/api/absences/{id}`
+            assertParamExists('replaceBar', 'id', id)
+            // verify required parameter 'bar' is not null or undefined
+            assertParamExists('replaceBar', 'bar', bar)
+            const localVarPath = `/api/bars/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -452,7 +452,7 @@ export const AbsenceApiAxiosParamCreator = function (configuration?: Configurati
             setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(absence, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(bar, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -462,16 +462,16 @@ export const AbsenceApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * 
          * @param {number} id 
-         * @param {Absence} absence 
+         * @param {Bar} bar 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateAbsence: async (id: number, absence: Absence, options: any = {}): Promise<RequestArgs> => {
+        updateBar: async (id: number, bar: Bar, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('updateAbsence', 'id', id)
-            // verify required parameter 'absence' is not null or undefined
-            assertParamExists('updateAbsence', 'absence', absence)
-            const localVarPath = `/api/absences/{id}`
+            assertParamExists('updateBar', 'id', id)
+            // verify required parameter 'bar' is not null or undefined
+            assertParamExists('updateBar', 'bar', bar)
+            const localVarPath = `/api/bars/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -491,7 +491,7 @@ export const AbsenceApiAxiosParamCreator = function (configuration?: Configurati
             setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(absence, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(bar, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -502,30 +502,30 @@ export const AbsenceApiAxiosParamCreator = function (configuration?: Configurati
 };
 
 /**
- * AbsenceApi - functional programming interface
+ * BarApi - functional programming interface
  * @export
  */
-export const AbsenceApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = AbsenceApiAxiosParamCreator(configuration)
+export const BarApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = BarApiAxiosParamCreator(configuration)
     return {
         /**
          * 
-         * @param {Absence} absence 
+         * @param {Bar} bar 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createAbsence(absence: Absence, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Absence>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createAbsence(absence, options);
+        async createBar(bar: Bar, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Bar>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createBar(bar, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * 
-         * @param {CreateManyAbsenceDto} createManyAbsenceDto 
+         * @param {CreateManyBarDto} createManyBarDto 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createAbsences(createManyAbsenceDto: CreateManyAbsenceDto, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Absence>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createAbsences(createManyAbsenceDto, options);
+        async createBars(createManyBarDto: CreateManyBarDto, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Bar>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createBars(createManyBarDto, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -537,8 +537,8 @@ export const AbsenceApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getAbsence(id: number, fields?: Array<string>, join?: Array<string>, cache?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Absence>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getAbsence(id, fields, join, cache, options);
+        async getBar(id: number, fields?: Array<string>, join?: Array<string>, cache?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Bar>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getBar(id, fields, join, cache, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -556,8 +556,8 @@ export const AbsenceApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getAbsences(fields?: Array<string>, s?: string, filter?: Array<string>, or?: Array<string>, sort?: Array<string>, join?: Array<string>, limit?: number, offset?: number, page?: number, cache?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetManyAbsenceResponseDto | Array<Absence>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getAbsences(fields, s, filter, or, sort, join, limit, offset, page, cache, options);
+        async getBars(fields?: Array<string>, s?: string, filter?: Array<string>, or?: Array<string>, sort?: Array<string>, join?: Array<string>, limit?: number, offset?: number, page?: number, cache?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetManyBarResponseDto | Array<Bar>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getBars(fields, s, filter, or, sort, join, limit, offset, page, cache, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -566,59 +566,59 @@ export const AbsenceApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async removeAbsence(id: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.removeAbsence(id, options);
+        async removeBar(id: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.removeBar(id, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * 
          * @param {number} id 
-         * @param {Absence} absence 
+         * @param {Bar} bar 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async replaceAbsence(id: number, absence: Absence, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Absence>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.replaceAbsence(id, absence, options);
+        async replaceBar(id: number, bar: Bar, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Bar>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.replaceBar(id, bar, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * 
          * @param {number} id 
-         * @param {Absence} absence 
+         * @param {Bar} bar 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateAbsence(id: number, absence: Absence, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Absence>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateAbsence(id, absence, options);
+        async updateBar(id: number, bar: Bar, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Bar>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateBar(id, bar, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
 };
 
 /**
- * AbsenceApi - factory interface
+ * BarApi - factory interface
  * @export
  */
-export const AbsenceApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = AbsenceApiFp(configuration)
+export const BarApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = BarApiFp(configuration)
     return {
         /**
          * 
-         * @param {Absence} absence 
+         * @param {Bar} bar 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAbsence(absence: Absence, options?: any): AxiosPromise<Absence> {
-            return localVarFp.createAbsence(absence, options).then((request) => request(axios, basePath));
+        createBar(bar: Bar, options?: any): AxiosPromise<Bar> {
+            return localVarFp.createBar(bar, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {CreateManyAbsenceDto} createManyAbsenceDto 
+         * @param {CreateManyBarDto} createManyBarDto 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAbsences(createManyAbsenceDto: CreateManyAbsenceDto, options?: any): AxiosPromise<Array<Absence>> {
-            return localVarFp.createAbsences(createManyAbsenceDto, options).then((request) => request(axios, basePath));
+        createBars(createManyBarDto: CreateManyBarDto, options?: any): AxiosPromise<Array<Bar>> {
+            return localVarFp.createBars(createManyBarDto, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -629,8 +629,8 @@ export const AbsenceApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAbsence(id: number, fields?: Array<string>, join?: Array<string>, cache?: number, options?: any): AxiosPromise<Absence> {
-            return localVarFp.getAbsence(id, fields, join, cache, options).then((request) => request(axios, basePath));
+        getBar(id: number, fields?: Array<string>, join?: Array<string>, cache?: number, options?: any): AxiosPromise<Bar> {
+            return localVarFp.getBar(id, fields, join, cache, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -647,8 +647,8 @@ export const AbsenceApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAbsences(fields?: Array<string>, s?: string, filter?: Array<string>, or?: Array<string>, sort?: Array<string>, join?: Array<string>, limit?: number, offset?: number, page?: number, cache?: number, options?: any): AxiosPromise<GetManyAbsenceResponseDto | Array<Absence>> {
-            return localVarFp.getAbsences(fields, s, filter, or, sort, join, limit, offset, page, cache, options).then((request) => request(axios, basePath));
+        getBars(fields?: Array<string>, s?: string, filter?: Array<string>, or?: Array<string>, sort?: Array<string>, join?: Array<string>, limit?: number, offset?: number, page?: number, cache?: number, options?: any): AxiosPromise<GetManyBarResponseDto | Array<Bar>> {
+            return localVarFp.getBars(fields, s, filter, or, sort, join, limit, offset, page, cache, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -656,59 +656,59 @@ export const AbsenceApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeAbsence(id: number, options?: any): AxiosPromise<void> {
-            return localVarFp.removeAbsence(id, options).then((request) => request(axios, basePath));
+        removeBar(id: number, options?: any): AxiosPromise<void> {
+            return localVarFp.removeBar(id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @param {number} id 
-         * @param {Absence} absence 
+         * @param {Bar} bar 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        replaceAbsence(id: number, absence: Absence, options?: any): AxiosPromise<Absence> {
-            return localVarFp.replaceAbsence(id, absence, options).then((request) => request(axios, basePath));
+        replaceBar(id: number, bar: Bar, options?: any): AxiosPromise<Bar> {
+            return localVarFp.replaceBar(id, bar, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @param {number} id 
-         * @param {Absence} absence 
+         * @param {Bar} bar 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateAbsence(id: number, absence: Absence, options?: any): AxiosPromise<Absence> {
-            return localVarFp.updateAbsence(id, absence, options).then((request) => request(axios, basePath));
+        updateBar(id: number, bar: Bar, options?: any): AxiosPromise<Bar> {
+            return localVarFp.updateBar(id, bar, options).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * AbsenceApi - object-oriented interface
+ * BarApi - object-oriented interface
  * @export
- * @class AbsenceApi
+ * @class BarApi
  * @extends {BaseAPI}
  */
-export class AbsenceApi extends BaseAPI {
+export class BarApi extends BaseAPI {
     /**
      * 
-     * @param {Absence} absence 
+     * @param {Bar} bar 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AbsenceApi
+     * @memberof BarApi
      */
-    public createAbsence(absence: Absence, options?: any) {
-        return AbsenceApiFp(this.configuration).createAbsence(absence, options).then((request) => request(this.axios, this.basePath));
+    public createBar(bar: Bar, options?: any) {
+        return BarApiFp(this.configuration).createBar(bar, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {CreateManyAbsenceDto} createManyAbsenceDto 
+     * @param {CreateManyBarDto} createManyBarDto 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AbsenceApi
+     * @memberof BarApi
      */
-    public createAbsences(createManyAbsenceDto: CreateManyAbsenceDto, options?: any) {
-        return AbsenceApiFp(this.configuration).createAbsences(createManyAbsenceDto, options).then((request) => request(this.axios, this.basePath));
+    public createBars(createManyBarDto: CreateManyBarDto, options?: any) {
+        return BarApiFp(this.configuration).createBars(createManyBarDto, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -719,10 +719,10 @@ export class AbsenceApi extends BaseAPI {
      * @param {number} [cache] Reset cache (if was enabled). &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#cache\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AbsenceApi
+     * @memberof BarApi
      */
-    public getAbsence(id: number, fields?: Array<string>, join?: Array<string>, cache?: number, options?: any) {
-        return AbsenceApiFp(this.configuration).getAbsence(id, fields, join, cache, options).then((request) => request(this.axios, this.basePath));
+    public getBar(id: number, fields?: Array<string>, join?: Array<string>, cache?: number, options?: any) {
+        return BarApiFp(this.configuration).getBar(id, fields, join, cache, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -739,10 +739,10 @@ export class AbsenceApi extends BaseAPI {
      * @param {number} [cache] Reset cache (if was enabled). &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#cache\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AbsenceApi
+     * @memberof BarApi
      */
-    public getAbsences(fields?: Array<string>, s?: string, filter?: Array<string>, or?: Array<string>, sort?: Array<string>, join?: Array<string>, limit?: number, offset?: number, page?: number, cache?: number, options?: any) {
-        return AbsenceApiFp(this.configuration).getAbsences(fields, s, filter, or, sort, join, limit, offset, page, cache, options).then((request) => request(this.axios, this.basePath));
+    public getBars(fields?: Array<string>, s?: string, filter?: Array<string>, or?: Array<string>, sort?: Array<string>, join?: Array<string>, limit?: number, offset?: number, page?: number, cache?: number, options?: any) {
+        return BarApiFp(this.configuration).getBars(fields, s, filter, or, sort, join, limit, offset, page, cache, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -750,54 +750,54 @@ export class AbsenceApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AbsenceApi
+     * @memberof BarApi
      */
-    public removeAbsence(id: number, options?: any) {
-        return AbsenceApiFp(this.configuration).removeAbsence(id, options).then((request) => request(this.axios, this.basePath));
+    public removeBar(id: number, options?: any) {
+        return BarApiFp(this.configuration).removeBar(id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @param {number} id 
-     * @param {Absence} absence 
+     * @param {Bar} bar 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AbsenceApi
+     * @memberof BarApi
      */
-    public replaceAbsence(id: number, absence: Absence, options?: any) {
-        return AbsenceApiFp(this.configuration).replaceAbsence(id, absence, options).then((request) => request(this.axios, this.basePath));
+    public replaceBar(id: number, bar: Bar, options?: any) {
+        return BarApiFp(this.configuration).replaceBar(id, bar, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @param {number} id 
-     * @param {Absence} absence 
+     * @param {Bar} bar 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AbsenceApi
+     * @memberof BarApi
      */
-    public updateAbsence(id: number, absence: Absence, options?: any) {
-        return AbsenceApiFp(this.configuration).updateAbsence(id, absence, options).then((request) => request(this.axios, this.basePath));
+    public updateBar(id: number, bar: Bar, options?: any) {
+        return BarApiFp(this.configuration).updateBar(id, bar, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
 
 /**
- * StudentApi - axios parameter creator
+ * FooApi - axios parameter creator
  * @export
  */
-export const StudentApiAxiosParamCreator = function (configuration?: Configuration) {
+export const FooApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * 
-         * @param {Student} student 
+         * @param {Foo} foo 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createStudent: async (student: Student, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'student' is not null or undefined
-            assertParamExists('createStudent', 'student', student)
-            const localVarPath = `/api/students`;
+        createFoo: async (foo: Foo, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'foo' is not null or undefined
+            assertParamExists('createFoo', 'foo', foo)
+            const localVarPath = `/api/foos`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -816,7 +816,7 @@ export const StudentApiAxiosParamCreator = function (configuration?: Configurati
             setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(student, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(foo, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -825,14 +825,14 @@ export const StudentApiAxiosParamCreator = function (configuration?: Configurati
         },
         /**
          * 
-         * @param {CreateManyStudentDto} createManyStudentDto 
+         * @param {CreateManyFooDto} createManyFooDto 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createStudents: async (createManyStudentDto: CreateManyStudentDto, options: any = {}): Promise<RequestArgs> => {
-            // verify required parameter 'createManyStudentDto' is not null or undefined
-            assertParamExists('createStudents', 'createManyStudentDto', createManyStudentDto)
-            const localVarPath = `/api/students/bulk`;
+        createFoos: async (createManyFooDto: CreateManyFooDto, options: any = {}): Promise<RequestArgs> => {
+            // verify required parameter 'createManyFooDto' is not null or undefined
+            assertParamExists('createFoos', 'createManyFooDto', createManyFooDto)
+            const localVarPath = `/api/foos/bulk`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -851,7 +851,7 @@ export const StudentApiAxiosParamCreator = function (configuration?: Configurati
             setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(createManyStudentDto, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(createManyFooDto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -867,10 +867,10 @@ export const StudentApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStudent: async (id: number, fields?: Array<string>, join?: Array<string>, cache?: number, options: any = {}): Promise<RequestArgs> => {
+        getFoo: async (id: number, fields?: Array<string>, join?: Array<string>, cache?: number, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('getStudent', 'id', id)
-            const localVarPath = `/api/students/{id}`
+            assertParamExists('getFoo', 'id', id)
+            const localVarPath = `/api/foos/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -921,8 +921,8 @@ export const StudentApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStudents: async (fields?: Array<string>, s?: string, filter?: Array<string>, or?: Array<string>, sort?: Array<string>, join?: Array<string>, limit?: number, offset?: number, page?: number, cache?: number, options: any = {}): Promise<RequestArgs> => {
-            const localVarPath = `/api/students`;
+        getFoos: async (fields?: Array<string>, s?: string, filter?: Array<string>, or?: Array<string>, sort?: Array<string>, join?: Array<string>, limit?: number, offset?: number, page?: number, cache?: number, options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/foos`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -991,10 +991,10 @@ export const StudentApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeStudent: async (id: number, options: any = {}): Promise<RequestArgs> => {
+        removeFoo: async (id: number, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('removeStudent', 'id', id)
-            const localVarPath = `/api/students/{id}`
+            assertParamExists('removeFoo', 'id', id)
+            const localVarPath = `/api/foos/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1021,16 +1021,16 @@ export const StudentApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * 
          * @param {number} id 
-         * @param {Student} student 
+         * @param {Foo} foo 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        replaceStudent: async (id: number, student: Student, options: any = {}): Promise<RequestArgs> => {
+        replaceFoo: async (id: number, foo: Foo, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('replaceStudent', 'id', id)
-            // verify required parameter 'student' is not null or undefined
-            assertParamExists('replaceStudent', 'student', student)
-            const localVarPath = `/api/students/{id}`
+            assertParamExists('replaceFoo', 'id', id)
+            // verify required parameter 'foo' is not null or undefined
+            assertParamExists('replaceFoo', 'foo', foo)
+            const localVarPath = `/api/foos/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1050,7 +1050,7 @@ export const StudentApiAxiosParamCreator = function (configuration?: Configurati
             setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(student, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(foo, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1060,16 +1060,16 @@ export const StudentApiAxiosParamCreator = function (configuration?: Configurati
         /**
          * 
          * @param {number} id 
-         * @param {Student} student 
+         * @param {Foo} foo 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateStudent: async (id: number, student: Student, options: any = {}): Promise<RequestArgs> => {
+        updateFoo: async (id: number, foo: Foo, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('updateStudent', 'id', id)
-            // verify required parameter 'student' is not null or undefined
-            assertParamExists('updateStudent', 'student', student)
-            const localVarPath = `/api/students/{id}`
+            assertParamExists('updateFoo', 'id', id)
+            // verify required parameter 'foo' is not null or undefined
+            assertParamExists('updateFoo', 'foo', foo)
+            const localVarPath = `/api/foos/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1089,7 +1089,7 @@ export const StudentApiAxiosParamCreator = function (configuration?: Configurati
             setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(student, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(foo, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1100,30 +1100,30 @@ export const StudentApiAxiosParamCreator = function (configuration?: Configurati
 };
 
 /**
- * StudentApi - functional programming interface
+ * FooApi - functional programming interface
  * @export
  */
-export const StudentApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = StudentApiAxiosParamCreator(configuration)
+export const FooApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = FooApiAxiosParamCreator(configuration)
     return {
         /**
          * 
-         * @param {Student} student 
+         * @param {Foo} foo 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createStudent(student: Student, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Student>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createStudent(student, options);
+        async createFoo(foo: Foo, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Foo>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createFoo(foo, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * 
-         * @param {CreateManyStudentDto} createManyStudentDto 
+         * @param {CreateManyFooDto} createManyFooDto 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createStudents(createManyStudentDto: CreateManyStudentDto, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Student>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createStudents(createManyStudentDto, options);
+        async createFoos(createManyFooDto: CreateManyFooDto, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Foo>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createFoos(createManyFooDto, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -1135,8 +1135,8 @@ export const StudentApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getStudent(id: number, fields?: Array<string>, join?: Array<string>, cache?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Student>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getStudent(id, fields, join, cache, options);
+        async getFoo(id: number, fields?: Array<string>, join?: Array<string>, cache?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Foo>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getFoo(id, fields, join, cache, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -1154,8 +1154,8 @@ export const StudentApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getStudents(fields?: Array<string>, s?: string, filter?: Array<string>, or?: Array<string>, sort?: Array<string>, join?: Array<string>, limit?: number, offset?: number, page?: number, cache?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetManyStudentResponseDto | Array<Student>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getStudents(fields, s, filter, or, sort, join, limit, offset, page, cache, options);
+        async getFoos(fields?: Array<string>, s?: string, filter?: Array<string>, or?: Array<string>, sort?: Array<string>, join?: Array<string>, limit?: number, offset?: number, page?: number, cache?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetManyFooResponseDto | Array<Foo>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getFoos(fields, s, filter, or, sort, join, limit, offset, page, cache, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -1164,59 +1164,59 @@ export const StudentApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async removeStudent(id: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.removeStudent(id, options);
+        async removeFoo(id: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.removeFoo(id, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * 
          * @param {number} id 
-         * @param {Student} student 
+         * @param {Foo} foo 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async replaceStudent(id: number, student: Student, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Student>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.replaceStudent(id, student, options);
+        async replaceFoo(id: number, foo: Foo, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Foo>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.replaceFoo(id, foo, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * 
          * @param {number} id 
-         * @param {Student} student 
+         * @param {Foo} foo 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateStudent(id: number, student: Student, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Student>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateStudent(id, student, options);
+        async updateFoo(id: number, foo: Foo, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Foo>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateFoo(id, foo, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
 };
 
 /**
- * StudentApi - factory interface
+ * FooApi - factory interface
  * @export
  */
-export const StudentApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = StudentApiFp(configuration)
+export const FooApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = FooApiFp(configuration)
     return {
         /**
          * 
-         * @param {Student} student 
+         * @param {Foo} foo 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createStudent(student: Student, options?: any): AxiosPromise<Student> {
-            return localVarFp.createStudent(student, options).then((request) => request(axios, basePath));
+        createFoo(foo: Foo, options?: any): AxiosPromise<Foo> {
+            return localVarFp.createFoo(foo, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {CreateManyStudentDto} createManyStudentDto 
+         * @param {CreateManyFooDto} createManyFooDto 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createStudents(createManyStudentDto: CreateManyStudentDto, options?: any): AxiosPromise<Array<Student>> {
-            return localVarFp.createStudents(createManyStudentDto, options).then((request) => request(axios, basePath));
+        createFoos(createManyFooDto: CreateManyFooDto, options?: any): AxiosPromise<Array<Foo>> {
+            return localVarFp.createFoos(createManyFooDto, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -1227,8 +1227,8 @@ export const StudentApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStudent(id: number, fields?: Array<string>, join?: Array<string>, cache?: number, options?: any): AxiosPromise<Student> {
-            return localVarFp.getStudent(id, fields, join, cache, options).then((request) => request(axios, basePath));
+        getFoo(id: number, fields?: Array<string>, join?: Array<string>, cache?: number, options?: any): AxiosPromise<Foo> {
+            return localVarFp.getFoo(id, fields, join, cache, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -1245,8 +1245,8 @@ export const StudentApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStudents(fields?: Array<string>, s?: string, filter?: Array<string>, or?: Array<string>, sort?: Array<string>, join?: Array<string>, limit?: number, offset?: number, page?: number, cache?: number, options?: any): AxiosPromise<GetManyStudentResponseDto | Array<Student>> {
-            return localVarFp.getStudents(fields, s, filter, or, sort, join, limit, offset, page, cache, options).then((request) => request(axios, basePath));
+        getFoos(fields?: Array<string>, s?: string, filter?: Array<string>, or?: Array<string>, sort?: Array<string>, join?: Array<string>, limit?: number, offset?: number, page?: number, cache?: number, options?: any): AxiosPromise<GetManyFooResponseDto | Array<Foo>> {
+            return localVarFp.getFoos(fields, s, filter, or, sort, join, limit, offset, page, cache, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -1254,59 +1254,59 @@ export const StudentApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeStudent(id: number, options?: any): AxiosPromise<void> {
-            return localVarFp.removeStudent(id, options).then((request) => request(axios, basePath));
+        removeFoo(id: number, options?: any): AxiosPromise<void> {
+            return localVarFp.removeFoo(id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @param {number} id 
-         * @param {Student} student 
+         * @param {Foo} foo 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        replaceStudent(id: number, student: Student, options?: any): AxiosPromise<Student> {
-            return localVarFp.replaceStudent(id, student, options).then((request) => request(axios, basePath));
+        replaceFoo(id: number, foo: Foo, options?: any): AxiosPromise<Foo> {
+            return localVarFp.replaceFoo(id, foo, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @param {number} id 
-         * @param {Student} student 
+         * @param {Foo} foo 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateStudent(id: number, student: Student, options?: any): AxiosPromise<Student> {
-            return localVarFp.updateStudent(id, student, options).then((request) => request(axios, basePath));
+        updateFoo(id: number, foo: Foo, options?: any): AxiosPromise<Foo> {
+            return localVarFp.updateFoo(id, foo, options).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * StudentApi - object-oriented interface
+ * FooApi - object-oriented interface
  * @export
- * @class StudentApi
+ * @class FooApi
  * @extends {BaseAPI}
  */
-export class StudentApi extends BaseAPI {
+export class FooApi extends BaseAPI {
     /**
      * 
-     * @param {Student} student 
+     * @param {Foo} foo 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StudentApi
+     * @memberof FooApi
      */
-    public createStudent(student: Student, options?: any) {
-        return StudentApiFp(this.configuration).createStudent(student, options).then((request) => request(this.axios, this.basePath));
+    public createFoo(foo: Foo, options?: any) {
+        return FooApiFp(this.configuration).createFoo(foo, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {CreateManyStudentDto} createManyStudentDto 
+     * @param {CreateManyFooDto} createManyFooDto 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StudentApi
+     * @memberof FooApi
      */
-    public createStudents(createManyStudentDto: CreateManyStudentDto, options?: any) {
-        return StudentApiFp(this.configuration).createStudents(createManyStudentDto, options).then((request) => request(this.axios, this.basePath));
+    public createFoos(createManyFooDto: CreateManyFooDto, options?: any) {
+        return FooApiFp(this.configuration).createFoos(createManyFooDto, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1317,10 +1317,10 @@ export class StudentApi extends BaseAPI {
      * @param {number} [cache] Reset cache (if was enabled). &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#cache\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StudentApi
+     * @memberof FooApi
      */
-    public getStudent(id: number, fields?: Array<string>, join?: Array<string>, cache?: number, options?: any) {
-        return StudentApiFp(this.configuration).getStudent(id, fields, join, cache, options).then((request) => request(this.axios, this.basePath));
+    public getFoo(id: number, fields?: Array<string>, join?: Array<string>, cache?: number, options?: any) {
+        return FooApiFp(this.configuration).getFoo(id, fields, join, cache, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1337,10 +1337,10 @@ export class StudentApi extends BaseAPI {
      * @param {number} [cache] Reset cache (if was enabled). &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#cache\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StudentApi
+     * @memberof FooApi
      */
-    public getStudents(fields?: Array<string>, s?: string, filter?: Array<string>, or?: Array<string>, sort?: Array<string>, join?: Array<string>, limit?: number, offset?: number, page?: number, cache?: number, options?: any) {
-        return StudentApiFp(this.configuration).getStudents(fields, s, filter, or, sort, join, limit, offset, page, cache, options).then((request) => request(this.axios, this.basePath));
+    public getFoos(fields?: Array<string>, s?: string, filter?: Array<string>, or?: Array<string>, sort?: Array<string>, join?: Array<string>, limit?: number, offset?: number, page?: number, cache?: number, options?: any) {
+        return FooApiFp(this.configuration).getFoos(fields, s, filter, or, sort, join, limit, offset, page, cache, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1348,34 +1348,34 @@ export class StudentApi extends BaseAPI {
      * @param {number} id 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StudentApi
+     * @memberof FooApi
      */
-    public removeStudent(id: number, options?: any) {
-        return StudentApiFp(this.configuration).removeStudent(id, options).then((request) => request(this.axios, this.basePath));
+    public removeFoo(id: number, options?: any) {
+        return FooApiFp(this.configuration).removeFoo(id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @param {number} id 
-     * @param {Student} student 
+     * @param {Foo} foo 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StudentApi
+     * @memberof FooApi
      */
-    public replaceStudent(id: number, student: Student, options?: any) {
-        return StudentApiFp(this.configuration).replaceStudent(id, student, options).then((request) => request(this.axios, this.basePath));
+    public replaceFoo(id: number, foo: Foo, options?: any) {
+        return FooApiFp(this.configuration).replaceFoo(id, foo, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @param {number} id 
-     * @param {Student} student 
+     * @param {Foo} foo 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StudentApi
+     * @memberof FooApi
      */
-    public updateStudent(id: number, student: Student, options?: any) {
-        return StudentApiFp(this.configuration).updateStudent(id, student, options).then((request) => request(this.axios, this.basePath));
+    public updateFoo(id: number, foo: Foo, options?: any) {
+        return FooApiFp(this.configuration).updateFoo(id, foo, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

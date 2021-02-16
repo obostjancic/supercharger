@@ -4,7 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { SentryModule } from '@ntegral/nestjs-sentry';
 import { AuthModule } from 'src/supercharger/auth/auth.module';
 import { SuperchargerModule } from 'src/supercharger/supercharger.module';
-import { CoreModule } from './core/core.module';
+import { CoreModule } from './example/example.module';
 
 @Module({
   imports: [
@@ -21,11 +21,11 @@ import { CoreModule } from './core/core.module';
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: process.env.TYPEORM_HOST,
-      port: parseInt(process.env.TYPEORM_PORT, 10),
-      username: process.env.TYPEORM_USER,
-      password: process.env.TYPEORM_PASSWORD,
-      database: process.env.TYPEORM_DATABASE,
+      host: process.env.POSTGRES_HOST,
+      port: parseInt(process.env.POSTGRES_PORT, 10),
+      username: process.env.POSTGRES_USER,
+      password: process.env.POSTGRES_PASSWORD,
+      database: process.env.POSTGRES_DATABASE,
       entities: ['dist/**/*.entity.js'],
       synchronize: true,
       logging: false,

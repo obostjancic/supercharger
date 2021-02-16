@@ -17,7 +17,6 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, options);
 
   SwaggerModule.setup('/docs', app, document, options.swaggerOptions);
-  console.log(process.env.NODE_ENV);
   if (process.env.NODE_ENV !== 'dev') {
     writeFileSync(`${process.cwd()}/openapi3.json`, JSON.stringify(document, null, 2));
     exec(

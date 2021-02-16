@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "supercharger-api",
-    "description": "Superchanger API",
+    "title": "api-supercharger",
+    "description": "REST API Superchanger",
     "version": "0.0.1",
     "contact": {
       "name": "Ognjen Bostjancic",
@@ -14,13 +14,13 @@
   "servers": [],
   "components": {
     "schemas": {
-      "GetManyAbsenceResponseDto": {
+      "GetManyBarResponseDto": {
         "type": "object",
         "properties": {
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Absence"
+              "$ref": "#/components/schemas/Bar"
             }
           },
           "count": {
@@ -44,7 +44,7 @@
           "pageCount"
         ]
       },
-      "Absence": {
+      "Bar": {
         "type": "object",
         "properties": {
           "id": {
@@ -72,13 +72,13 @@
           "temp"
         ]
       },
-      "CreateManyAbsenceDto": {
+      "CreateManyBarDto": {
         "type": "object",
         "properties": {
           "bulk": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Absence"
+              "$ref": "#/components/schemas/Bar"
             }
           }
         },
@@ -86,13 +86,13 @@
           "bulk"
         ]
       },
-      "GetManyStudentResponseDto": {
+      "GetManyFooResponseDto": {
         "type": "object",
         "properties": {
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Student"
+              "$ref": "#/components/schemas/Foo"
             }
           },
           "count": {
@@ -116,7 +116,7 @@
           "pageCount"
         ]
       },
-      "Student": {
+      "Foo": {
         "type": "object",
         "properties": {
           "id": {
@@ -144,13 +144,13 @@
           "name"
         ]
       },
-      "CreateManyStudentDto": {
+      "CreateManyFooDto": {
         "type": "object",
         "properties": {
           "bulk": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Student"
+              "$ref": "#/components/schemas/Foo"
             }
           }
         },
@@ -161,9 +161,9 @@
     }
   },
   "paths": {
-    "/api/absences/{id}": {
+    "/api/bars/{id}": {
       "get": {
-        "operationId": "getAbsence",
+        "operationId": "getBar",
         "summary": "",
         "parameters": [
           {
@@ -220,14 +220,14 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Absence"
+                  "$ref": "#/components/schemas/Bar"
                 }
               }
             }
           }
         },
         "tags": [
-          "Absence"
+          "Bar"
         ],
         "security": [
           {
@@ -236,7 +236,7 @@
         ]
       },
       "patch": {
-        "operationId": "updateAbsence",
+        "operationId": "updateBar",
         "summary": "",
         "parameters": [
           {
@@ -253,7 +253,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Absence"
+                "$ref": "#/components/schemas/Bar"
               }
             }
           }
@@ -264,14 +264,14 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Absence"
+                  "$ref": "#/components/schemas/Bar"
                 }
               }
             }
           }
         },
         "tags": [
-          "Absence"
+          "Bar"
         ],
         "security": [
           {
@@ -280,7 +280,7 @@
         ]
       },
       "put": {
-        "operationId": "replaceAbsence",
+        "operationId": "replaceBar",
         "summary": "",
         "parameters": [
           {
@@ -297,7 +297,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Absence"
+                "$ref": "#/components/schemas/Bar"
               }
             }
           }
@@ -308,14 +308,14 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Absence"
+                  "$ref": "#/components/schemas/Bar"
                 }
               }
             }
           }
         },
         "tags": [
-          "Absence"
+          "Bar"
         ],
         "security": [
           {
@@ -324,7 +324,7 @@
         ]
       },
       "delete": {
-        "operationId": "removeAbsence",
+        "operationId": "removeBar",
         "summary": "",
         "parameters": [
           {
@@ -342,7 +342,7 @@
           }
         },
         "tags": [
-          "Absence"
+          "Bar"
         ],
         "security": [
           {
@@ -351,9 +351,9 @@
         ]
       }
     },
-    "/api/absences": {
+    "/api/bars": {
       "get": {
-        "operationId": "getAbsences",
+        "operationId": "getBars",
         "summary": "",
         "parameters": [
           {
@@ -482,12 +482,12 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/GetManyAbsenceResponseDto"
+                      "$ref": "#/components/schemas/GetManyBarResponseDto"
                     },
                     {
                       "type": "array",
                       "items": {
-                        "$ref": "#/components/schemas/Absence"
+                        "$ref": "#/components/schemas/Bar"
                       }
                     }
                   ]
@@ -497,7 +497,7 @@
           }
         },
         "tags": [
-          "Absence"
+          "Bar"
         ],
         "security": [
           {
@@ -506,7 +506,7 @@
         ]
       },
       "post": {
-        "operationId": "createAbsence",
+        "operationId": "createBar",
         "summary": "",
         "parameters": [],
         "requestBody": {
@@ -514,7 +514,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Absence"
+                "$ref": "#/components/schemas/Bar"
               }
             }
           }
@@ -525,14 +525,14 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Absence"
+                  "$ref": "#/components/schemas/Bar"
                 }
               }
             }
           }
         },
         "tags": [
-          "Absence"
+          "Bar"
         ],
         "security": [
           {
@@ -541,9 +541,9 @@
         ]
       }
     },
-    "/api/absences/bulk": {
+    "/api/bars/bulk": {
       "post": {
-        "operationId": "createAbsences",
+        "operationId": "createBars",
         "summary": "",
         "parameters": [],
         "requestBody": {
@@ -551,7 +551,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateManyAbsenceDto"
+                "$ref": "#/components/schemas/CreateManyBarDto"
               }
             }
           }
@@ -564,7 +564,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Absence"
+                    "$ref": "#/components/schemas/Bar"
                   }
                 }
               }
@@ -572,7 +572,7 @@
           }
         },
         "tags": [
-          "Absence"
+          "Bar"
         ],
         "security": [
           {
@@ -581,9 +581,9 @@
         ]
       }
     },
-    "/api/students/{id}": {
+    "/api/foos/{id}": {
       "get": {
-        "operationId": "getStudent",
+        "operationId": "getFoo",
         "summary": "",
         "parameters": [
           {
@@ -640,14 +640,14 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Student"
+                  "$ref": "#/components/schemas/Foo"
                 }
               }
             }
           }
         },
         "tags": [
-          "Student"
+          "Foo"
         ],
         "security": [
           {
@@ -656,7 +656,7 @@
         ]
       },
       "patch": {
-        "operationId": "updateStudent",
+        "operationId": "updateFoo",
         "summary": "",
         "parameters": [
           {
@@ -673,7 +673,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Student"
+                "$ref": "#/components/schemas/Foo"
               }
             }
           }
@@ -684,14 +684,14 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Student"
+                  "$ref": "#/components/schemas/Foo"
                 }
               }
             }
           }
         },
         "tags": [
-          "Student"
+          "Foo"
         ],
         "security": [
           {
@@ -700,7 +700,7 @@
         ]
       },
       "put": {
-        "operationId": "replaceStudent",
+        "operationId": "replaceFoo",
         "summary": "",
         "parameters": [
           {
@@ -717,7 +717,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Student"
+                "$ref": "#/components/schemas/Foo"
               }
             }
           }
@@ -728,14 +728,14 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Student"
+                  "$ref": "#/components/schemas/Foo"
                 }
               }
             }
           }
         },
         "tags": [
-          "Student"
+          "Foo"
         ],
         "security": [
           {
@@ -744,7 +744,7 @@
         ]
       },
       "delete": {
-        "operationId": "removeStudent",
+        "operationId": "removeFoo",
         "summary": "",
         "parameters": [
           {
@@ -762,7 +762,7 @@
           }
         },
         "tags": [
-          "Student"
+          "Foo"
         ],
         "security": [
           {
@@ -771,9 +771,9 @@
         ]
       }
     },
-    "/api/students": {
+    "/api/foos": {
       "get": {
-        "operationId": "getStudents",
+        "operationId": "getFoos",
         "summary": "",
         "parameters": [
           {
@@ -902,12 +902,12 @@
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/GetManyStudentResponseDto"
+                      "$ref": "#/components/schemas/GetManyFooResponseDto"
                     },
                     {
                       "type": "array",
                       "items": {
-                        "$ref": "#/components/schemas/Student"
+                        "$ref": "#/components/schemas/Foo"
                       }
                     }
                   ]
@@ -917,7 +917,7 @@
           }
         },
         "tags": [
-          "Student"
+          "Foo"
         ],
         "security": [
           {
@@ -926,7 +926,7 @@
         ]
       },
       "post": {
-        "operationId": "createStudent",
+        "operationId": "createFoo",
         "summary": "",
         "parameters": [],
         "requestBody": {
@@ -934,7 +934,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Student"
+                "$ref": "#/components/schemas/Foo"
               }
             }
           }
@@ -945,14 +945,14 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Student"
+                  "$ref": "#/components/schemas/Foo"
                 }
               }
             }
           }
         },
         "tags": [
-          "Student"
+          "Foo"
         ],
         "security": [
           {
@@ -961,9 +961,9 @@
         ]
       }
     },
-    "/api/students/bulk": {
+    "/api/foos/bulk": {
       "post": {
-        "operationId": "createStudents",
+        "operationId": "createFoos",
         "summary": "",
         "parameters": [],
         "requestBody": {
@@ -971,7 +971,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateManyStudentDto"
+                "$ref": "#/components/schemas/CreateManyFooDto"
               }
             }
           }
@@ -984,7 +984,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Student"
+                    "$ref": "#/components/schemas/Foo"
                   }
                 }
               }
@@ -992,7 +992,7 @@
           }
         },
         "tags": [
-          "Student"
+          "Foo"
         ],
         "security": [
           {

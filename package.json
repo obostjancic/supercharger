@@ -1,8 +1,8 @@
 {
-  "name": "supercharger-api",
+  "name": "api-supercharger",
   "private": true,
   "version": "0.0.1",
-  "description": "Superchanger API",
+  "description": "REST API Superchanger",
   "license": "MIT",
   "author": {
     "name": "Ognjen Bostjancic",
