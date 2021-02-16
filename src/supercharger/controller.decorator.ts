@@ -1,7 +1,7 @@
-import { applyDecorators, Controller as NestController, Param, SetMetadata } from "@nestjs/common";
-import { Crud } from "@nestjsx/crud";
-import { ApiTags, ApiOperation } from "@nestjs/swagger";
-import { Protected } from "./auth/protected.decorator";
+import { applyDecorators, Controller as NestController, Param, SetMetadata } from '@nestjs/common';
+import { Crud } from '@nestjsx/crud';
+import { ApiTags, ApiOperation } from '@nestjs/swagger';
+import { Protected } from './auth/protected.decorator';
 
 const protect = (should: boolean) => (should ? Protected() : () => {});
 
@@ -10,7 +10,7 @@ export const Controller = (resource, auth: boolean = true) => {
   const plural = `${singular}s`;
   return applyDecorators(
     NestController(`api/${plural.toLowerCase()}`),
-    SetMetadata("resource", resource),
+    SetMetadata('resource', resource),
     Crud({
       model: {
         type: resource,
@@ -43,4 +43,4 @@ export const Controller = (resource, auth: boolean = true) => {
     // UseFilters(new AllExceptionsFilter())
   );
 };
-export const Id = () => Param("id");
+export const Id = () => Param('id');

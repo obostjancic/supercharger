@@ -1,6 +1,6 @@
-import { DocumentBuilder } from "@nestjs/swagger";
+import { DocumentBuilder } from '@nestjs/swagger';
 
-const pjson = require("root-require")("package.json");
+const pjson = require('root-require')('package.json');
 
 export const generateOpenapiOptions = () => {
   const options = new DocumentBuilder()

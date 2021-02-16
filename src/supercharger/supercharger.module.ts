@@ -1,5 +1,5 @@
-import { Module } from "@nestjs/common";
-import { BaseEntity } from "./base.entity";
+import { Module } from '@nestjs/common';
+import { BaseEntity } from './base.entity';
 
 @Module({
   imports: [],
