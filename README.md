@@ -1,6 +1,6 @@
 ## Description
 
-Api starter, built on top of <a href="https://nestjs.com/">nest</a> and <a href="https://github.com/nestjsx/crud">nextjsx-crud</a> packages. Enables rapid REST API development and automates openapi docs and client generation.
+Api starter, built on top of <a href="https://nestjs.com/">nest</a> and <a href="https://github.com/nestjsx/crud">nextjsx-crud</a> packages. Enables rapid REST API development and automates openapi docs and client generation. Comes bundled with OmniDB database manager
 
 ## Creating layered CRUD
 
