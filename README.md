@@ -35,7 +35,11 @@ export class FooController implements CrudController<Foo> {
 }
 ```
 
-And that is it! This will create a CRUD controller that allows basic manipulation with this entity. On top of that it will generate openapi(swagger) docs and a axios-typescript library that can be used in the following way
+And that is it! This will create a CRUD controller that allows basic manipulation with this entity. It will generate openapi(swagger) docs
+
+<img src="./image.png" />
+
+And a axios-typescript library that can be used in the following way
 
 ```ts
 import { FooApi } from '../client/api';
