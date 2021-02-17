@@ -1,0 +1,57 @@
+image: node
+
+stages:
+  - test
+  - build
+  - deploy
+
+unit-test:
+  stage: test
+  script: ls
+  only:
+    refs:
+      - tags
+
+e2e-test:
+  stage: test
+  script: ls
+  only:
+    refs:
+      - tags
+
+build-api:
+  stage: build
+  cache:
+    paths:
+      - node_modules
+  artifacts:
+    paths:
+      - dist
+  only:
+    refs:
+      - tags
+  script:
+    - npm install && npm run build
+
+deploy-api:
+  stage: deploy
+  image: ruby:latest
+  needs:
+    - job: build-api
+      artifacts: true
+  only:
+    - tags
+  before_script:
+    # - apt-get update -qy
+    # - apt-get install -y ruby-dev
+    # - gem install dpl
+    # - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    # - eval $(ssh-agent -s)
+    # - ssh-add <(echo "$AWS_SSH")
+    # - mkdir -p ~/.ssh
+    # - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+  script:
+    - echo "deploying"
+    # - cd api && dpl --provider=heroku --app=supercharger-dev --api-key=$HEROKU_API_KEY
+    # - scp -prq api/ ec2-user@ec2-18-184-69-244.eu-central-1.compute.amazonaws.com:/home/ec2-user/supercharger/
+    # - ssh ec2-user@ec2-18-184-69-244.eu-central-1.compute.amazonaws.com "cd supercharger/api && yarn && pm2 restart supercharger"
