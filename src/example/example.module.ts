@@ -13,4 +13,4 @@ import { FooService } from './foo.service';
   controllers: [BarController, FooController],
   providers: [BarService, FooService],
 })
-export class CoreModule {}
+export class ExampleModule {}

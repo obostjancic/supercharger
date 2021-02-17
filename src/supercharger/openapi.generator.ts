@@ -1,8 +1,10 @@
-import { DocumentBuilder } from '@nestjs/swagger';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { exec } from 'child_process';
+import { writeFileSync } from 'fs';
 
 const pjson = require('root-require')('package.json');
 
-export const generateOpenapiOptions = () => {
+export const generateOpenapi = (app) => {
   const options = new DocumentBuilder()
     .setTitle(pjson.name)
     .setDescription(pjson.description)
@@ -22,10 +24,6 @@ export const generateOpenapiOptions = () => {
     // )
     .build();
 
-  const openApiOptions: any = {
-    ...options,
-  };
-
   // openApiOptions.components.securitySchemes["auth0_jwt"] = {
   //   ...openApiOptions.components.securitySchemes.auth0_jwt,
   //   "x-google-issuer": `https://${process.env.AUTH0_ACCOUNT}.auth0.com/`,
@@ -40,5 +38,16 @@ export const generateOpenapiOptions = () => {
   //   },
   // };
 
-  return openApiOptions;
+  const document = SwaggerModule.createDocument(app, options);
+
+  SwaggerModule.setup('/docs', app, document, {});
+
+  if (process.env.NODE_ENV !== 'dev') {
+    writeFileSync(`${process.cwd()}/openapi3.json`, JSON.stringify(document, null, 2));
+    exec(
+      `openapi-generator generate -i ${process.cwd()}/openapi3.json -g typescript-axios -o ${process.cwd()}/client/api -p useSingleRequestParameter=true`
+    );
+  }
+
+  return document;
 };

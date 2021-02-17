@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * api-supercharger
- * REST API Superchanger
+ * REST API Supercharger
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: ognjen.bostjancic@gmail.com

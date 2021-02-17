@@ -1,6 +1,6 @@
 import { applyDecorators, Controller as NestController, Param, SetMetadata } from '@nestjs/common';
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { Crud } from '@nestjsx/crud';
-import { ApiTags, ApiOperation } from '@nestjs/swagger';
 import { Protected } from './auth/protected.decorator';
 
 const protect = (should: boolean) => (should ? Protected() : () => {});
@@ -8,6 +8,7 @@ const protect = (should: boolean) => (should ? Protected() : () => {});
 export const Controller = (resource, auth: boolean = true) => {
   const singular = resource.name.toString();
   const plural = `${singular}s`;
+
   return applyDecorators(
     NestController(`api/${plural.toLowerCase()}`),
     SetMetadata('resource', resource),
@@ -38,9 +39,13 @@ export const Controller = (resource, auth: boolean = true) => {
           decorators: [protect(auth), ApiOperation({ operationId: `remove${singular}` })],
         },
       },
+      query: {
+        alwaysPaginate: true,
+        limit: 50,
+        maxLimit: 100,
+      },
     }),
     ApiTags(resource.name)
-    // UseFilters(new AllExceptionsFilter())
   );
 };
 export const Id = () => Param('id');

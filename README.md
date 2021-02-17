@@ -39,20 +39,20 @@ And that is it! This will create a CRUD controller that allows basic manipulatio
 
 <img src="./image.png" />
 
-And a axios-typescript library that can be used in the following way
+And a axios-typescript API wrapper that can be used in the following way
 
 ```ts
 import { FooApi } from '../client/api';
 
 const fooApi = new FooApi();
 
-const foo = await fooApi.getFoo();
-const foos = await fooApi.getFoos();
-const newFoo = await fooApi.createFoo();
-const newFoos = await fooApi.createFoos();
-const updatedFoo = await fooApi.updateFoo();
-const replaceFoo = await fooApi.replaceFoo();
-const noFoo = await fooApi.removeFoo();
+const foo = await fooApi.getFoo({ id: 5 });
+const foos = await fooApi.getFoos({ page: 1, limit: 100 });
+const newFoo = await fooApi.createFoo({ foo: { name: 'foo' } });
+const newFoos = await fooApi.createFoos({ createManyFooDto: { bulk: [{ name: 'foo' }] } });
+const updatedFoo = await fooApi.updateFoo({ id: 5, foo: { name: 'foo2' } });
+const replaceFoo = await fooApi.replaceFoo({ id: 5, foo: { name: 'foo2' } });
+const noFoo = await fooApi.removeFoo({ id: 5 });
 ```
 
 ## Installation
@@ -63,7 +63,7 @@ $ yarn
 
 ## Running the app
 
-Rename _.env.example_ to _.env_
+Rename `env.example` to `.env`
 
 ```bash
 # development
@@ -81,17 +81,13 @@ $ npm run start:prod
 ```bash
 docker-compose up
 # to create a superuser for omnidb
-docker exec -it my_container python omnidb-server.py --createsuperuser=admin pass
+docker exec -it rest_supercharger_omnidb_1 python omnidb-server.py --createsuperuser=admin pass
 ```
 
 ## OmniDB
 
-```bash
-Navigate to 0.0.0.0:8081 (localhost dosn't work)
-Login with admin/pass superuser
-When adding a connection bear in mind that omniDB is running in docker so
-postgres is not at localhost:5432 but postgres:5432
-```
+Navigate to `0.0.0.0:8081` (localhost doesn't work). Login with superuser admin/pass
+When adding a connection keep in mind that `omnidb` is running in docker so postgres is not accesible at at `localhost:5432` but `postgres:5432`
 
 ## Test
 

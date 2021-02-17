@@ -4,7 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { SentryModule } from '@ntegral/nestjs-sentry';
 import { AuthModule } from 'src/supercharger/auth/auth.module';
 import { SuperchargerModule } from 'src/supercharger/supercharger.module';
-import { CoreModule } from './example/example.module';
+import { ExampleModule } from './example/example.module';
 
 @Module({
   imports: [
@@ -40,7 +40,7 @@ import { CoreModule } from './example/example.module';
       debug: true,
     }),
     SuperchargerModule,
-    CoreModule,
+    ExampleModule,
   ],
 })
 export class AppModule {}

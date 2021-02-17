@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * api-supercharger
- * REST API Superchanger
+ * REST API Supercharger
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: ognjen.bostjancic@gmail.com
@@ -32,19 +32,19 @@ export interface Bar {
      * @type {number}
      * @memberof Bar
      */
-    id: number;
+    id?: number;
     /**
      * 
      * @type {string}
      * @memberof Bar
      */
-    created: string;
+    created?: string;
     /**
      * 
      * @type {string}
      * @memberof Bar
      */
-    updated: string;
+    updated?: string;
     /**
      * 
      * @type {number}
@@ -89,19 +89,19 @@ export interface Foo {
      * @type {number}
      * @memberof Foo
      */
-    id: number;
+    id?: number;
     /**
      * 
      * @type {string}
      * @memberof Foo
      */
-    created: string;
+    created?: string;
     /**
      * 
      * @type {string}
      * @memberof Foo
      */
-    updated: string;
+    updated?: string;
     /**
      * 
      * @type {string}
@@ -556,7 +556,7 @@ export const BarApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getBars(fields?: Array<string>, s?: string, filter?: Array<string>, or?: Array<string>, sort?: Array<string>, join?: Array<string>, limit?: number, offset?: number, page?: number, cache?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetManyBarResponseDto | Array<Bar>>> {
+        async getBars(fields?: Array<string>, s?: string, filter?: Array<string>, or?: Array<string>, sort?: Array<string>, join?: Array<string>, limit?: number, offset?: number, page?: number, cache?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetManyBarResponseDto>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getBars(fields, s, filter, or, sort, join, limit, offset, page, cache, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -647,7 +647,7 @@ export const BarApiFactory = function (configuration?: Configuration, basePath?:
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getBars(fields?: Array<string>, s?: string, filter?: Array<string>, or?: Array<string>, sort?: Array<string>, join?: Array<string>, limit?: number, offset?: number, page?: number, cache?: number, options?: any): AxiosPromise<GetManyBarResponseDto | Array<Bar>> {
+        getBars(fields?: Array<string>, s?: string, filter?: Array<string>, or?: Array<string>, sort?: Array<string>, join?: Array<string>, limit?: number, offset?: number, page?: number, cache?: number, options?: any): AxiosPromise<GetManyBarResponseDto> {
             return localVarFp.getBars(fields, s, filter, or, sort, join, limit, offset, page, cache, options).then((request) => request(axios, basePath));
         },
         /**
@@ -683,6 +683,202 @@ export const BarApiFactory = function (configuration?: Configuration, basePath?:
 };
 
 /**
+ * Request parameters for createBar operation in BarApi.
+ * @export
+ * @interface BarApiCreateBarRequest
+ */
+export interface BarApiCreateBarRequest {
+    /**
+     * 
+     * @type {Bar}
+     * @memberof BarApiCreateBar
+     */
+    readonly bar: Bar
+}
+
+/**
+ * Request parameters for createBars operation in BarApi.
+ * @export
+ * @interface BarApiCreateBarsRequest
+ */
+export interface BarApiCreateBarsRequest {
+    /**
+     * 
+     * @type {CreateManyBarDto}
+     * @memberof BarApiCreateBars
+     */
+    readonly createManyBarDto: CreateManyBarDto
+}
+
+/**
+ * Request parameters for getBar operation in BarApi.
+ * @export
+ * @interface BarApiGetBarRequest
+ */
+export interface BarApiGetBarRequest {
+    /**
+     * 
+     * @type {number}
+     * @memberof BarApiGetBar
+     */
+    readonly id: number
+
+    /**
+     * Selects resource fields. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#select\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
+     * @type {Array<string>}
+     * @memberof BarApiGetBar
+     */
+    readonly fields?: Array<string>
+
+    /**
+     * Adds relational resources. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#join\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
+     * @type {Array<string>}
+     * @memberof BarApiGetBar
+     */
+    readonly join?: Array<string>
+
+    /**
+     * Reset cache (if was enabled). &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#cache\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
+     * @type {number}
+     * @memberof BarApiGetBar
+     */
+    readonly cache?: number
+}
+
+/**
+ * Request parameters for getBars operation in BarApi.
+ * @export
+ * @interface BarApiGetBarsRequest
+ */
+export interface BarApiGetBarsRequest {
+    /**
+     * Selects resource fields. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#select\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
+     * @type {Array<string>}
+     * @memberof BarApiGetBars
+     */
+    readonly fields?: Array<string>
+
+    /**
+     * Adds search condition. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#search\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
+     * @type {string}
+     * @memberof BarApiGetBars
+     */
+    readonly s?: string
+
+    /**
+     * Adds filter condition. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#filter\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
+     * @type {Array<string>}
+     * @memberof BarApiGetBars
+     */
+    readonly filter?: Array<string>
+
+    /**
+     * Adds OR condition. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#or\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
+     * @type {Array<string>}
+     * @memberof BarApiGetBars
+     */
+    readonly or?: Array<string>
+
+    /**
+     * Adds sort by field. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#sort\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
+     * @type {Array<string>}
+     * @memberof BarApiGetBars
+     */
+    readonly sort?: Array<string>
+
+    /**
+     * Adds relational resources. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#join\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
+     * @type {Array<string>}
+     * @memberof BarApiGetBars
+     */
+    readonly join?: Array<string>
+
+    /**
+     * Limit amount of resources. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#limit\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
+     * @type {number}
+     * @memberof BarApiGetBars
+     */
+    readonly limit?: number
+
+    /**
+     * Offset amount of resources. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#offset\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
+     * @type {number}
+     * @memberof BarApiGetBars
+     */
+    readonly offset?: number
+
+    /**
+     * Page portion of resources. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#page\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
+     * @type {number}
+     * @memberof BarApiGetBars
+     */
+    readonly page?: number
+
+    /**
+     * Reset cache (if was enabled). &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#cache\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
+     * @type {number}
+     * @memberof BarApiGetBars
+     */
+    readonly cache?: number
+}
+
+/**
+ * Request parameters for removeBar operation in BarApi.
+ * @export
+ * @interface BarApiRemoveBarRequest
+ */
+export interface BarApiRemoveBarRequest {
+    /**
+     * 
+     * @type {number}
+     * @memberof BarApiRemoveBar
+     */
+    readonly id: number
+}
+
+/**
+ * Request parameters for replaceBar operation in BarApi.
+ * @export
+ * @interface BarApiReplaceBarRequest
+ */
+export interface BarApiReplaceBarRequest {
+    /**
+     * 
+     * @type {number}
+     * @memberof BarApiReplaceBar
+     */
+    readonly id: number
+
+    /**
+     * 
+     * @type {Bar}
+     * @memberof BarApiReplaceBar
+     */
+    readonly bar: Bar
+}
+
+/**
+ * Request parameters for updateBar operation in BarApi.
+ * @export
+ * @interface BarApiUpdateBarRequest
+ */
+export interface BarApiUpdateBarRequest {
+    /**
+     * 
+     * @type {number}
+     * @memberof BarApiUpdateBar
+     */
+    readonly id: number
+
+    /**
+     * 
+     * @type {Bar}
+     * @memberof BarApiUpdateBar
+     */
+    readonly bar: Bar
+}
+
+/**
  * BarApi - object-oriented interface
  * @export
  * @class BarApi
@@ -691,93 +887,79 @@ export const BarApiFactory = function (configuration?: Configuration, basePath?:
 export class BarApi extends BaseAPI {
     /**
      * 
-     * @param {Bar} bar 
+     * @param {BarApiCreateBarRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BarApi
      */
-    public createBar(bar: Bar, options?: any) {
-        return BarApiFp(this.configuration).createBar(bar, options).then((request) => request(this.axios, this.basePath));
+    public createBar(requestParameters: BarApiCreateBarRequest, options?: any) {
+        return BarApiFp(this.configuration).createBar(requestParameters.bar, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {CreateManyBarDto} createManyBarDto 
+     * @param {BarApiCreateBarsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BarApi
      */
-    public createBars(createManyBarDto: CreateManyBarDto, options?: any) {
-        return BarApiFp(this.configuration).createBars(createManyBarDto, options).then((request) => request(this.axios, this.basePath));
+    public createBars(requestParameters: BarApiCreateBarsRequest, options?: any) {
+        return BarApiFp(this.configuration).createBars(requestParameters.createManyBarDto, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {number} id 
-     * @param {Array<string>} [fields] Selects resource fields. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#select\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
-     * @param {Array<string>} [join] Adds relational resources. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#join\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
-     * @param {number} [cache] Reset cache (if was enabled). &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#cache\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
+     * @param {BarApiGetBarRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BarApi
      */
-    public getBar(id: number, fields?: Array<string>, join?: Array<string>, cache?: number, options?: any) {
-        return BarApiFp(this.configuration).getBar(id, fields, join, cache, options).then((request) => request(this.axios, this.basePath));
+    public getBar(requestParameters: BarApiGetBarRequest, options?: any) {
+        return BarApiFp(this.configuration).getBar(requestParameters.id, requestParameters.fields, requestParameters.join, requestParameters.cache, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {Array<string>} [fields] Selects resource fields. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#select\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
-     * @param {string} [s] Adds search condition. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#search\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
-     * @param {Array<string>} [filter] Adds filter condition. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#filter\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
-     * @param {Array<string>} [or] Adds OR condition. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#or\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
-     * @param {Array<string>} [sort] Adds sort by field. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#sort\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
-     * @param {Array<string>} [join] Adds relational resources. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#join\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
-     * @param {number} [limit] Limit amount of resources. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#limit\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
-     * @param {number} [offset] Offset amount of resources. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#offset\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
-     * @param {number} [page] Page portion of resources. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#page\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
-     * @param {number} [cache] Reset cache (if was enabled). &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#cache\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
+     * @param {BarApiGetBarsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BarApi
      */
-    public getBars(fields?: Array<string>, s?: string, filter?: Array<string>, or?: Array<string>, sort?: Array<string>, join?: Array<string>, limit?: number, offset?: number, page?: number, cache?: number, options?: any) {
-        return BarApiFp(this.configuration).getBars(fields, s, filter, or, sort, join, limit, offset, page, cache, options).then((request) => request(this.axios, this.basePath));
+    public getBars(requestParameters: BarApiGetBarsRequest = {}, options?: any) {
+        return BarApiFp(this.configuration).getBars(requestParameters.fields, requestParameters.s, requestParameters.filter, requestParameters.or, requestParameters.sort, requestParameters.join, requestParameters.limit, requestParameters.offset, requestParameters.page, requestParameters.cache, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {number} id 
+     * @param {BarApiRemoveBarRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BarApi
      */
-    public removeBar(id: number, options?: any) {
-        return BarApiFp(this.configuration).removeBar(id, options).then((request) => request(this.axios, this.basePath));
+    public removeBar(requestParameters: BarApiRemoveBarRequest, options?: any) {
+        return BarApiFp(this.configuration).removeBar(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {number} id 
-     * @param {Bar} bar 
+     * @param {BarApiReplaceBarRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BarApi
      */
-    public replaceBar(id: number, bar: Bar, options?: any) {
-        return BarApiFp(this.configuration).replaceBar(id, bar, options).then((request) => request(this.axios, this.basePath));
+    public replaceBar(requestParameters: BarApiReplaceBarRequest, options?: any) {
+        return BarApiFp(this.configuration).replaceBar(requestParameters.id, requestParameters.bar, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {number} id 
-     * @param {Bar} bar 
+     * @param {BarApiUpdateBarRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BarApi
      */
-    public updateBar(id: number, bar: Bar, options?: any) {
-        return BarApiFp(this.configuration).updateBar(id, bar, options).then((request) => request(this.axios, this.basePath));
+    public updateBar(requestParameters: BarApiUpdateBarRequest, options?: any) {
+        return BarApiFp(this.configuration).updateBar(requestParameters.id, requestParameters.bar, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -852,6 +1034,35 @@ export const FooApiAxiosParamCreator = function (configuration?: Configuration) 
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(createManyFooDto, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        fooControllerBreakStuff: async (options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/foos/break`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1128,6 +1339,15 @@ export const FooApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async fooControllerBreakStuff(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.fooControllerBreakStuff(options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
          * @param {number} id 
          * @param {Array<string>} [fields] Selects resource fields. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#select\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
          * @param {Array<string>} [join] Adds relational resources. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#join\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
@@ -1154,7 +1374,7 @@ export const FooApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getFoos(fields?: Array<string>, s?: string, filter?: Array<string>, or?: Array<string>, sort?: Array<string>, join?: Array<string>, limit?: number, offset?: number, page?: number, cache?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetManyFooResponseDto | Array<Foo>>> {
+        async getFoos(fields?: Array<string>, s?: string, filter?: Array<string>, or?: Array<string>, sort?: Array<string>, join?: Array<string>, limit?: number, offset?: number, page?: number, cache?: number, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetManyFooResponseDto>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getFoos(fields, s, filter, or, sort, join, limit, offset, page, cache, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -1220,6 +1440,14 @@ export const FooApiFactory = function (configuration?: Configuration, basePath?:
         },
         /**
          * 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        fooControllerBreakStuff(options?: any): AxiosPromise<void> {
+            return localVarFp.fooControllerBreakStuff(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @param {number} id 
          * @param {Array<string>} [fields] Selects resource fields. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#select\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
          * @param {Array<string>} [join] Adds relational resources. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#join\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
@@ -1245,7 +1473,7 @@ export const FooApiFactory = function (configuration?: Configuration, basePath?:
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getFoos(fields?: Array<string>, s?: string, filter?: Array<string>, or?: Array<string>, sort?: Array<string>, join?: Array<string>, limit?: number, offset?: number, page?: number, cache?: number, options?: any): AxiosPromise<GetManyFooResponseDto | Array<Foo>> {
+        getFoos(fields?: Array<string>, s?: string, filter?: Array<string>, or?: Array<string>, sort?: Array<string>, join?: Array<string>, limit?: number, offset?: number, page?: number, cache?: number, options?: any): AxiosPromise<GetManyFooResponseDto> {
             return localVarFp.getFoos(fields, s, filter, or, sort, join, limit, offset, page, cache, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1281,6 +1509,202 @@ export const FooApiFactory = function (configuration?: Configuration, basePath?:
 };
 
 /**
+ * Request parameters for createFoo operation in FooApi.
+ * @export
+ * @interface FooApiCreateFooRequest
+ */
+export interface FooApiCreateFooRequest {
+    /**
+     * 
+     * @type {Foo}
+     * @memberof FooApiCreateFoo
+     */
+    readonly foo: Foo
+}
+
+/**
+ * Request parameters for createFoos operation in FooApi.
+ * @export
+ * @interface FooApiCreateFoosRequest
+ */
+export interface FooApiCreateFoosRequest {
+    /**
+     * 
+     * @type {CreateManyFooDto}
+     * @memberof FooApiCreateFoos
+     */
+    readonly createManyFooDto: CreateManyFooDto
+}
+
+/**
+ * Request parameters for getFoo operation in FooApi.
+ * @export
+ * @interface FooApiGetFooRequest
+ */
+export interface FooApiGetFooRequest {
+    /**
+     * 
+     * @type {number}
+     * @memberof FooApiGetFoo
+     */
+    readonly id: number
+
+    /**
+     * Selects resource fields. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#select\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
+     * @type {Array<string>}
+     * @memberof FooApiGetFoo
+     */
+    readonly fields?: Array<string>
+
+    /**
+     * Adds relational resources. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#join\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
+     * @type {Array<string>}
+     * @memberof FooApiGetFoo
+     */
+    readonly join?: Array<string>
+
+    /**
+     * Reset cache (if was enabled). &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#cache\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
+     * @type {number}
+     * @memberof FooApiGetFoo
+     */
+    readonly cache?: number
+}
+
+/**
+ * Request parameters for getFoos operation in FooApi.
+ * @export
+ * @interface FooApiGetFoosRequest
+ */
+export interface FooApiGetFoosRequest {
+    /**
+     * Selects resource fields. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#select\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
+     * @type {Array<string>}
+     * @memberof FooApiGetFoos
+     */
+    readonly fields?: Array<string>
+
+    /**
+     * Adds search condition. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#search\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
+     * @type {string}
+     * @memberof FooApiGetFoos
+     */
+    readonly s?: string
+
+    /**
+     * Adds filter condition. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#filter\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
+     * @type {Array<string>}
+     * @memberof FooApiGetFoos
+     */
+    readonly filter?: Array<string>
+
+    /**
+     * Adds OR condition. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#or\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
+     * @type {Array<string>}
+     * @memberof FooApiGetFoos
+     */
+    readonly or?: Array<string>
+
+    /**
+     * Adds sort by field. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#sort\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
+     * @type {Array<string>}
+     * @memberof FooApiGetFoos
+     */
+    readonly sort?: Array<string>
+
+    /**
+     * Adds relational resources. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#join\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
+     * @type {Array<string>}
+     * @memberof FooApiGetFoos
+     */
+    readonly join?: Array<string>
+
+    /**
+     * Limit amount of resources. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#limit\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
+     * @type {number}
+     * @memberof FooApiGetFoos
+     */
+    readonly limit?: number
+
+    /**
+     * Offset amount of resources. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#offset\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
+     * @type {number}
+     * @memberof FooApiGetFoos
+     */
+    readonly offset?: number
+
+    /**
+     * Page portion of resources. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#page\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
+     * @type {number}
+     * @memberof FooApiGetFoos
+     */
+    readonly page?: number
+
+    /**
+     * Reset cache (if was enabled). &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#cache\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
+     * @type {number}
+     * @memberof FooApiGetFoos
+     */
+    readonly cache?: number
+}
+
+/**
+ * Request parameters for removeFoo operation in FooApi.
+ * @export
+ * @interface FooApiRemoveFooRequest
+ */
+export interface FooApiRemoveFooRequest {
+    /**
+     * 
+     * @type {number}
+     * @memberof FooApiRemoveFoo
+     */
+    readonly id: number
+}
+
+/**
+ * Request parameters for replaceFoo operation in FooApi.
+ * @export
+ * @interface FooApiReplaceFooRequest
+ */
+export interface FooApiReplaceFooRequest {
+    /**
+     * 
+     * @type {number}
+     * @memberof FooApiReplaceFoo
+     */
+    readonly id: number
+
+    /**
+     * 
+     * @type {Foo}
+     * @memberof FooApiReplaceFoo
+     */
+    readonly foo: Foo
+}
+
+/**
+ * Request parameters for updateFoo operation in FooApi.
+ * @export
+ * @interface FooApiUpdateFooRequest
+ */
+export interface FooApiUpdateFooRequest {
+    /**
+     * 
+     * @type {number}
+     * @memberof FooApiUpdateFoo
+     */
+    readonly id: number
+
+    /**
+     * 
+     * @type {Foo}
+     * @memberof FooApiUpdateFoo
+     */
+    readonly foo: Foo
+}
+
+/**
  * FooApi - object-oriented interface
  * @export
  * @class FooApi
@@ -1289,93 +1713,89 @@ export const FooApiFactory = function (configuration?: Configuration, basePath?:
 export class FooApi extends BaseAPI {
     /**
      * 
-     * @param {Foo} foo 
+     * @param {FooApiCreateFooRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FooApi
      */
-    public createFoo(foo: Foo, options?: any) {
-        return FooApiFp(this.configuration).createFoo(foo, options).then((request) => request(this.axios, this.basePath));
+    public createFoo(requestParameters: FooApiCreateFooRequest, options?: any) {
+        return FooApiFp(this.configuration).createFoo(requestParameters.foo, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {CreateManyFooDto} createManyFooDto 
+     * @param {FooApiCreateFoosRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FooApi
      */
-    public createFoos(createManyFooDto: CreateManyFooDto, options?: any) {
-        return FooApiFp(this.configuration).createFoos(createManyFooDto, options).then((request) => request(this.axios, this.basePath));
+    public createFoos(requestParameters: FooApiCreateFoosRequest, options?: any) {
+        return FooApiFp(this.configuration).createFoos(requestParameters.createManyFooDto, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {number} id 
-     * @param {Array<string>} [fields] Selects resource fields. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#select\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
-     * @param {Array<string>} [join] Adds relational resources. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#join\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
-     * @param {number} [cache] Reset cache (if was enabled). &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#cache\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FooApi
      */
-    public getFoo(id: number, fields?: Array<string>, join?: Array<string>, cache?: number, options?: any) {
-        return FooApiFp(this.configuration).getFoo(id, fields, join, cache, options).then((request) => request(this.axios, this.basePath));
+    public fooControllerBreakStuff(options?: any) {
+        return FooApiFp(this.configuration).fooControllerBreakStuff(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {Array<string>} [fields] Selects resource fields. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#select\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
-     * @param {string} [s] Adds search condition. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#search\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
-     * @param {Array<string>} [filter] Adds filter condition. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#filter\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
-     * @param {Array<string>} [or] Adds OR condition. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#or\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
-     * @param {Array<string>} [sort] Adds sort by field. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#sort\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
-     * @param {Array<string>} [join] Adds relational resources. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#join\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
-     * @param {number} [limit] Limit amount of resources. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#limit\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
-     * @param {number} [offset] Offset amount of resources. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#offset\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
-     * @param {number} [page] Page portion of resources. &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#page\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
-     * @param {number} [cache] Reset cache (if was enabled). &lt;a href&#x3D;\&quot;https://github.com/nestjsx/crud/wiki/Requests#cache\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Docs&lt;/a&gt;
+     * @param {FooApiGetFooRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FooApi
      */
-    public getFoos(fields?: Array<string>, s?: string, filter?: Array<string>, or?: Array<string>, sort?: Array<string>, join?: Array<string>, limit?: number, offset?: number, page?: number, cache?: number, options?: any) {
-        return FooApiFp(this.configuration).getFoos(fields, s, filter, or, sort, join, limit, offset, page, cache, options).then((request) => request(this.axios, this.basePath));
+    public getFoo(requestParameters: FooApiGetFooRequest, options?: any) {
+        return FooApiFp(this.configuration).getFoo(requestParameters.id, requestParameters.fields, requestParameters.join, requestParameters.cache, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {number} id 
+     * @param {FooApiGetFoosRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FooApi
      */
-    public removeFoo(id: number, options?: any) {
-        return FooApiFp(this.configuration).removeFoo(id, options).then((request) => request(this.axios, this.basePath));
+    public getFoos(requestParameters: FooApiGetFoosRequest = {}, options?: any) {
+        return FooApiFp(this.configuration).getFoos(requestParameters.fields, requestParameters.s, requestParameters.filter, requestParameters.or, requestParameters.sort, requestParameters.join, requestParameters.limit, requestParameters.offset, requestParameters.page, requestParameters.cache, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {number} id 
-     * @param {Foo} foo 
+     * @param {FooApiRemoveFooRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FooApi
      */
-    public replaceFoo(id: number, foo: Foo, options?: any) {
-        return FooApiFp(this.configuration).replaceFoo(id, foo, options).then((request) => request(this.axios, this.basePath));
+    public removeFoo(requestParameters: FooApiRemoveFooRequest, options?: any) {
+        return FooApiFp(this.configuration).removeFoo(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {number} id 
-     * @param {Foo} foo 
+     * @param {FooApiReplaceFooRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof FooApi
      */
-    public updateFoo(id: number, foo: Foo, options?: any) {
-        return FooApiFp(this.configuration).updateFoo(id, foo, options).then((request) => request(this.axios, this.basePath));
+    public replaceFoo(requestParameters: FooApiReplaceFooRequest, options?: any) {
+        return FooApiFp(this.configuration).replaceFoo(requestParameters.id, requestParameters.foo, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {FooApiUpdateFooRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FooApi
+     */
+    public updateFoo(requestParameters: FooApiUpdateFooRequest, options?: any) {
+        return FooApiFp(this.configuration).updateFoo(requestParameters.id, requestParameters.foo, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

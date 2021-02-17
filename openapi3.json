@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "api-supercharger",
-    "description": "REST API Superchanger",
+    "description": "REST API Supercharger",
     "version": "0.0.1",
     "contact": {
       "name": "Ognjen Bostjancic",
@@ -48,17 +48,14 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "number",
-            "readOnly": true
+            "type": "number"
           },
           "created": {
             "type": "string",
-            "readOnly": true,
             "format": "date"
           },
           "updated": {
             "type": "string",
-            "readOnly": true,
             "format": "date"
           },
           "temp": {
@@ -66,9 +63,6 @@
           }
         },
         "required": [
-          "id",
-          "created",
-          "updated",
           "temp"
         ]
       },
@@ -120,17 +114,14 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "number",
-            "readOnly": true
+            "type": "number"
           },
           "created": {
             "type": "string",
-            "readOnly": true,
             "format": "date"
           },
           "updated": {
             "type": "string",
-            "readOnly": true,
             "format": "date"
           },
           "name": {
@@ -138,9 +129,6 @@
           }
         },
         "required": [
-          "id",
-          "created",
-          "updated",
           "name"
         ]
       },
@@ -476,21 +464,11 @@
         ],
         "responses": {
           "200": {
-            "description": "Get many base response",
+            "description": "Get paginated response",
             "content": {
               "application/json": {
                 "schema": {
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/GetManyBarResponseDto"
-                    },
-                    {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/Bar"
-                      }
-                    }
-                  ]
+                  "$ref": "#/components/schemas/GetManyBarResponseDto"
                 }
               }
             }
@@ -578,6 +556,20 @@
           {
             "auth0_jwt": []
           }
+        ]
+      }
+    },
+    "/api/foos/break": {
+      "get": {
+        "operationId": "FooController_breakStuff",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Foo"
         ]
       }
     },
@@ -896,21 +888,11 @@
         ],
         "responses": {
           "200": {
-            "description": "Get many base response",
+            "description": "Get paginated response",
             "content": {
               "application/json": {
                 "schema": {
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/GetManyFooResponseDto"
-                    },
-                    {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/Foo"
-                      }
-                    }
-                  ]
+                  "$ref": "#/components/schemas/GetManyFooResponseDto"
                 }
               }
             }
