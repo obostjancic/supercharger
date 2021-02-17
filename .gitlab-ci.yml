@@ -10,6 +10,7 @@ unit-test:
   script: ls
   only:
     refs:
+      - master
       - tags
 
 e2e-test:
@@ -17,6 +18,7 @@ e2e-test:
   script: ls
   only:
     refs:
+      - master
       - tags
 
 build-api:
@@ -36,9 +38,6 @@ build-api:
 deploy-api:
   stage: deploy
   image: ruby:latest
-  needs:
-    - job: build-api
-      artifacts: true
   only:
     - tags
   before_script:
