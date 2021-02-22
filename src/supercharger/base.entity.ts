@@ -1,5 +1,5 @@
+import { ApiPropertyOptional } from '@nestjs/swagger';
 import { CreateDateColumn, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
-import { ApiResponseProperty, ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 
 export class BaseEntity {
   @ApiPropertyOptional({ type: 'number' })

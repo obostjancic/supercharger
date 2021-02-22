@@ -10,11 +10,11 @@ import { ExampleModule } from './example/example.module';
   imports: [
     AuthModule.register(
       {
-        domain: `${process.env.AUTH0_ACCOUNT}.auth0.com`,
-        clientId: process.env.AUTH0_API_EXPLORER_CLIENT_ID,
-        clientSecret: process.env.AUTH0_API_EXPLORER_SECRET,
+        domain: process.env.OAUTH_DOMAIN,
+        clientId: process.env.OAUTH_CLIENT_ID,
+        clientSecret: process.env.OAUTH_SECRET,
       },
-      process.env.AUTH0_AUDIENCE
+      process.env.OAUTH_AUDIENCE
     ),
     ConfigModule.forRoot({
       isGlobal: true,

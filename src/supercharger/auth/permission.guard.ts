@@ -1,8 +1,7 @@
-import { Injectable, applyDecorators, UnauthorizedException } from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import { AuthGuard } from '@nestjs/passport';
-import { ApiBody } from '@nestjs/swagger';
-import { Bar } from 'src/example/bar.entity';
+import { request } from 'http';
 
 @Injectable()
 export class PermissionGuard extends AuthGuard('jwt') {
@@ -10,13 +9,12 @@ export class PermissionGuard extends AuthGuard('jwt') {
     super();
   }
 
-  //@ts-ignore
-  async handleRequest(err, userInfo, info, context) {
+  handleRequest(err, userInfo, info, context): any {
     const resource = this.reflector.get<any>('resource', context.getClass());
     const permissions = this.reflector.get<string[]>('permissions', context.getHandler());
     const { params, query, body, method, path } = context.getRequest();
 
-    // throw new UnauthorizedException('Nope');
-    return false;
+    if (!userInfo) throw new UnauthorizedException('Unauthenticated');
+    return userInfo;
   }
 }

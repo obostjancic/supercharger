@@ -48,4 +48,5 @@ export const Controller = (resource, auth: boolean = true) => {
     ApiTags(resource.name)
   );
 };
+
 export const Id = () => Param('id');

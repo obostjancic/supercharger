@@ -2,7 +2,6 @@ import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { SuperchargerModule } from './supercharger/supercharger.module';
-import { RedocModule } from 'nestjs-redoc';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);

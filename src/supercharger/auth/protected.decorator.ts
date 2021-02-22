@@ -1,7 +1,6 @@
 import { applyDecorators, SetMetadata, UseGuards } from '@nestjs/common';
-import { ApiOAuth2, ApiBody } from '@nestjs/swagger';
+import { ApiOAuth2 } from '@nestjs/swagger';
 import { PermissionGuard } from './permission.guard';
-import { Bar } from 'src/example/bar.entity';
 
 export const Permissions = (...permissions: string[]) => SetMetadata('permissions', permissions);
 

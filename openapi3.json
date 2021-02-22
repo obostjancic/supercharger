@@ -1,153 +1,5 @@
 {
   "openapi": "3.0.0",
-  "info": {
-    "title": "api-supercharger",
-    "description": "REST API Supercharger",
-    "version": "0.0.1",
-    "contact": {
-      "name": "Ognjen Bostjancic",
-      "url": "https://ognjenbostjancic.com",
-      "email": "ognjen.bostjancic@gmail.com"
-    }
-  },
-  "tags": [],
-  "servers": [],
-  "components": {
-    "schemas": {
-      "GetManyBarResponseDto": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Bar"
-            }
-          },
-          "count": {
-            "type": "number"
-          },
-          "total": {
-            "type": "number"
-          },
-          "page": {
-            "type": "number"
-          },
-          "pageCount": {
-            "type": "number"
-          }
-        },
-        "required": [
-          "data",
-          "count",
-          "total",
-          "page",
-          "pageCount"
-        ]
-      },
-      "Bar": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "created": {
-            "type": "string",
-            "format": "date"
-          },
-          "updated": {
-            "type": "string",
-            "format": "date"
-          },
-          "temp": {
-            "type": "number"
-          }
-        },
-        "required": [
-          "temp"
-        ]
-      },
-      "CreateManyBarDto": {
-        "type": "object",
-        "properties": {
-          "bulk": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Bar"
-            }
-          }
-        },
-        "required": [
-          "bulk"
-        ]
-      },
-      "GetManyFooResponseDto": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Foo"
-            }
-          },
-          "count": {
-            "type": "number"
-          },
-          "total": {
-            "type": "number"
-          },
-          "page": {
-            "type": "number"
-          },
-          "pageCount": {
-            "type": "number"
-          }
-        },
-        "required": [
-          "data",
-          "count",
-          "total",
-          "page",
-          "pageCount"
-        ]
-      },
-      "Foo": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number"
-          },
-          "created": {
-            "type": "string",
-            "format": "date"
-          },
-          "updated": {
-            "type": "string",
-            "format": "date"
-          },
-          "name": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "name"
-        ]
-      },
-      "CreateManyFooDto": {
-        "type": "object",
-        "properties": {
-          "bulk": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Foo"
-            }
-          }
-        },
-        "required": [
-          "bulk"
-        ]
-      }
-    }
-  },
   "paths": {
     "/api/bars/{id}": {
       "get": {
@@ -559,20 +411,6 @@
         ]
       }
     },
-    "/api/foos/break": {
-      "get": {
-        "operationId": "FooController_breakStuff",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "tags": [
-          "Foo"
-        ]
-      }
-    },
     "/api/foos/{id}": {
       "get": {
         "operationId": "getFoo",
@@ -980,6 +818,172 @@
           {
             "auth0_jwt": []
           }
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "api-supercharger",
+    "description": "REST API Supercharger",
+    "version": "0.0.1",
+    "contact": {
+      "name": "Ognjen Bostjancic",
+      "url": "https://ognjenbostjancic.com",
+      "email": "ognjen.bostjancic@gmail.com"
+    }
+  },
+  "tags": [],
+  "servers": [],
+  "components": {
+    "securitySchemes": {
+      "auth0_jwt": {
+        "type": "oauth2",
+        "flows": {
+          "implicit": {
+            "scopes": [
+              "email",
+              "openid",
+              "profile"
+            ],
+            "authorizationUrl": "https://team8.eu.auth0.com/authorize?audience=https://team8-api.com"
+          }
+        },
+        "x-google-issuer": "https://team8.eu.auth0.com/",
+        "x-google-jwks_uri": "https://team8.eu.auth0.com/.well-known/jwks.json",
+        "x-google-audiences": "https://team8-api.com"
+      }
+    },
+    "schemas": {
+      "GetManyBarResponseDto": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Bar"
+            }
+          },
+          "count": {
+            "type": "number"
+          },
+          "total": {
+            "type": "number"
+          },
+          "page": {
+            "type": "number"
+          },
+          "pageCount": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "data",
+          "count",
+          "total",
+          "page",
+          "pageCount"
+        ]
+      },
+      "Bar": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "created": {
+            "type": "string",
+            "format": "date"
+          },
+          "updated": {
+            "type": "string",
+            "format": "date"
+          },
+          "temp": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "temp"
+        ]
+      },
+      "CreateManyBarDto": {
+        "type": "object",
+        "properties": {
+          "bulk": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Bar"
+            }
+          }
+        },
+        "required": [
+          "bulk"
+        ]
+      },
+      "GetManyFooResponseDto": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Foo"
+            }
+          },
+          "count": {
+            "type": "number"
+          },
+          "total": {
+            "type": "number"
+          },
+          "page": {
+            "type": "number"
+          },
+          "pageCount": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "data",
+          "count",
+          "total",
+          "page",
+          "pageCount"
+        ]
+      },
+      "Foo": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "created": {
+            "type": "string",
+            "format": "date"
+          },
+          "updated": {
+            "type": "string",
+            "format": "date"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
+      "CreateManyFooDto": {
+        "type": "object",
+        "properties": {
+          "bulk": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Foo"
+            }
+          }
+        },
+        "required": [
+          "bulk"
         ]
       }
     }
