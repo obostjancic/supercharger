@@ -1,7 +1,5 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { SentryModule } from '@ntegral/nestjs-sentry';
 import { AuthModule } from 'src/supercharger/auth/auth.module';
 import { SuperchargerModule } from 'src/supercharger/supercharger.module';
 import { ExampleModule } from './example/example.module';
@@ -16,9 +14,6 @@ import { ExampleModule } from './example/example.module';
       },
       process.env.OAUTH_AUDIENCE
     ),
-    ConfigModule.forRoot({
-      isGlobal: true,
-    }),
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.POSTGRES_HOST,
@@ -32,13 +27,10 @@ import { ExampleModule } from './example/example.module';
       autoLoadEntities: true,
       cache: true,
     }),
-    SentryModule.forRoot({
-      dsn:
-        process.env.NODE_ENV === 'production'
-          ? 'https://3f67c3add7994d9a9833d4d801bc0f87@o405677.ingest.sentry.io/5418961'
-          : null,
-      debug: true,
-    }),
+    // SentryModule.forRoot({
+    //   dsn: process.env.NODE_ENV === 'production' ? process.env.SENTRY_DSN : null,
+    //   debug: true,
+    // }),
     SuperchargerModule,
     ExampleModule,
   ],

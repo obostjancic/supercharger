@@ -2,10 +2,11 @@ import { applyDecorators, Controller as NestController, Param, SetMetadata } fro
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { Crud } from '@nestjsx/crud';
 import { Protected } from './auth/protected.decorator';
+import { BaseEntity } from './base.entity';
 
-const protect = (should: boolean) => (should ? Protected() : () => {});
+const protect = (should: boolean) => (should ? Protected() : null);
 
-export const Controller = (resource, auth: boolean = true) => {
+export const Controller = (resource: typeof BaseEntity, auth = true): any => {
   const singular = resource.name.toString();
   const plural = `${singular}s`;
 
@@ -49,4 +50,4 @@ export const Controller = (resource, auth: boolean = true) => {
   );
 };
 
-export const Id = () => Param('id');
+export const Id = (): ParameterDecorator => Param('id');

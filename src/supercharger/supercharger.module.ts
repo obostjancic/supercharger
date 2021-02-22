@@ -1,16 +1,15 @@
-import { Module } from '@nestjs/common';
+import { INestApplication, Module } from '@nestjs/common';
 import { BaseEntity } from './base.entity';
 import { generateOpenapi } from './openapi.generator';
-import { RedocModule } from 'nestjs-redoc';
 
 @Module({
-  imports: [RedocModule],
+  imports: [],
   controllers: [],
   providers: [BaseEntity],
   exports: [BaseEntity],
 })
 export class SuperchargerModule {
-  static generateOpenapiDocs(app) {
+  static generateOpenapiDocs(app: INestApplication): void {
     generateOpenapi(app);
   }
 }

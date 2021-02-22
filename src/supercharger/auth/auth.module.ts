@@ -5,7 +5,8 @@ import { ConfigModule } from '@nestjs/config';
 
 @Module({})
 export class AuthModule {
-  static register(auth0Config, audience): DynamicModule {
+  /* eslint-disable @typescript-eslint/no-unused-vars */
+  static register(auth0Config: unknown, audience: unknown): DynamicModule {
     return {
       module: AuthModule,
       imports: [
