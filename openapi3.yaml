@@ -1,0 +1,637 @@
+xopenapi: 3.0.0
+paths:
+  '/api/bars/{id}':
+    get:
+      operationId: getBar
+      summary: ''
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+        - name: fields
+          description: 'Selects resource fields. <a href="https://github.com/nestjsx/crud/wiki/Requests#select" target="_blank">Docs</a>'
+          required: false
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: false
+        - name: join
+          description: 'Adds relational resources. <a href="https://github.com/nestjsx/crud/wiki/Requests#join" target="_blank">Docs</a>'
+          required: false
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: true
+        - name: cache
+          description: 'Reset cache (if was enabled). <a href="https://github.com/nestjsx/crud/wiki/Requests#cache" target="_blank">Docs</a>'
+          required: false
+          in: query
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 1
+      responses:
+        '200':
+          description: Get one base response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bar'
+      tags:
+        - Bar
+      security:
+        - auth0_jwt: []
+    patch:
+      operationId: updateBar
+      summary: ''
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Bar'
+      responses:
+        '200':
+          description: Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bar'
+      tags:
+        - Bar
+      security:
+        - auth0_jwt: []
+    put:
+      operationId: replaceBar
+      summary: ''
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Bar'
+      responses:
+        '200':
+          description: Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bar'
+      tags:
+        - Bar
+      security:
+        - auth0_jwt: []
+    delete:
+      operationId: removeBar
+      summary: ''
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+      responses:
+        '200':
+          description: Delete one base response
+      tags:
+        - Bar
+      security:
+        - auth0_jwt: []
+  /api/bars:
+    get:
+      operationId: getBars
+      summary: ''
+      parameters:
+        - name: fields
+          description: 'Selects resource fields. <a href="https://github.com/nestjsx/crud/wiki/Requests#select" target="_blank">Docs</a>'
+          required: false
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: false
+        - name: s
+          description: 'Adds search condition. <a href="https://github.com/nestjsx/crud/wiki/Requests#search" target="_blank">Docs</a>'
+          required: false
+          in: query
+          schema:
+            type: string
+        - name: filter
+          description: 'Adds filter condition. <a href="https://github.com/nestjsx/crud/wiki/Requests#filter" target="_blank">Docs</a>'
+          required: false
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: true
+        - name: or
+          description: 'Adds OR condition. <a href="https://github.com/nestjsx/crud/wiki/Requests#or" target="_blank">Docs</a>'
+          required: false
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: true
+        - name: sort
+          description: 'Adds sort by field. <a href="https://github.com/nestjsx/crud/wiki/Requests#sort" target="_blank">Docs</a>'
+          required: false
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: true
+        - name: join
+          description: 'Adds relational resources. <a href="https://github.com/nestjsx/crud/wiki/Requests#join" target="_blank">Docs</a>'
+          required: false
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: true
+        - name: limit
+          description: 'Limit amount of resources. <a href="https://github.com/nestjsx/crud/wiki/Requests#limit" target="_blank">Docs</a>'
+          required: false
+          in: query
+          schema:
+            type: integer
+        - name: offset
+          description: 'Offset amount of resources. <a href="https://github.com/nestjsx/crud/wiki/Requests#offset" target="_blank">Docs</a>'
+          required: false
+          in: query
+          schema:
+            type: integer
+        - name: page
+          description: 'Page portion of resources. <a href="https://github.com/nestjsx/crud/wiki/Requests#page" target="_blank">Docs</a>'
+          required: false
+          in: query
+          schema:
+            type: integer
+        - name: cache
+          description: 'Reset cache (if was enabled). <a href="https://github.com/nestjsx/crud/wiki/Requests#cache" target="_blank">Docs</a>'
+          required: false
+          in: query
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 1
+      responses:
+        '200':
+          description: Get paginated response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetManyBarResponseDto'
+      tags:
+        - Bar
+      security:
+        - auth0_jwt: []
+    post:
+      operationId: createBar
+      summary: ''
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Bar'
+      responses:
+        '201':
+          description: Get create one base response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bar'
+      tags:
+        - Bar
+      security:
+        - auth0_jwt: []
+  /api/bars/bulk:
+    post:
+      operationId: createBars
+      summary: ''
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateManyBarDto'
+      responses:
+        '201':
+          description: Get create many base response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Bar'
+      tags:
+        - Bar
+      security:
+        - auth0_jwt: []
+  '/api/foos/{id}':
+    get:
+      operationId: getFoo
+      summary: ''
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+        - name: fields
+          description: 'Selects resource fields. <a href="https://github.com/nestjsx/crud/wiki/Requests#select" target="_blank">Docs</a>'
+          required: false
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: false
+        - name: join
+          description: 'Adds relational resources. <a href="https://github.com/nestjsx/crud/wiki/Requests#join" target="_blank">Docs</a>'
+          required: false
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: true
+        - name: cache
+          description: 'Reset cache (if was enabled). <a href="https://github.com/nestjsx/crud/wiki/Requests#cache" target="_blank">Docs</a>'
+          required: false
+          in: query
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 1
+      responses:
+        '200':
+          description: Get one base response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Foo'
+      tags:
+        - Foo
+      security:
+        - auth0_jwt: []
+    patch:
+      operationId: updateFoo
+      summary: ''
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Foo'
+      responses:
+        '200':
+          description: Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Foo'
+      tags:
+        - Foo
+      security:
+        - auth0_jwt: []
+    put:
+      operationId: replaceFoo
+      summary: ''
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Foo'
+      responses:
+        '200':
+          description: Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Foo'
+      tags:
+        - Foo
+      security:
+        - auth0_jwt: []
+    delete:
+      operationId: removeFoo
+      summary: ''
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: number
+      responses:
+        '200':
+          description: Delete one base response
+      tags:
+        - Foo
+      security:
+        - auth0_jwt: []
+  /api/foos:
+    get:
+      operationId: getFoos
+      summary: ''
+      parameters:
+        - name: fields
+          description: 'Selects resource fields. <a href="https://github.com/nestjsx/crud/wiki/Requests#select" target="_blank">Docs</a>'
+          required: false
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: false
+        - name: s
+          description: 'Adds search condition. <a href="https://github.com/nestjsx/crud/wiki/Requests#search" target="_blank">Docs</a>'
+          required: false
+          in: query
+          schema:
+            type: string
+        - name: filter
+          description: 'Adds filter condition. <a href="https://github.com/nestjsx/crud/wiki/Requests#filter" target="_blank">Docs</a>'
+          required: false
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: true
+        - name: or
+          description: 'Adds OR condition. <a href="https://github.com/nestjsx/crud/wiki/Requests#or" target="_blank">Docs</a>'
+          required: false
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: true
+        - name: sort
+          description: 'Adds sort by field. <a href="https://github.com/nestjsx/crud/wiki/Requests#sort" target="_blank">Docs</a>'
+          required: false
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: true
+        - name: join
+          description: 'Adds relational resources. <a href="https://github.com/nestjsx/crud/wiki/Requests#join" target="_blank">Docs</a>'
+          required: false
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: true
+        - name: limit
+          description: 'Limit amount of resources. <a href="https://github.com/nestjsx/crud/wiki/Requests#limit" target="_blank">Docs</a>'
+          required: false
+          in: query
+          schema:
+            type: integer
+        - name: offset
+          description: 'Offset amount of resources. <a href="https://github.com/nestjsx/crud/wiki/Requests#offset" target="_blank">Docs</a>'
+          required: false
+          in: query
+          schema:
+            type: integer
+        - name: page
+          description: 'Page portion of resources. <a href="https://github.com/nestjsx/crud/wiki/Requests#page" target="_blank">Docs</a>'
+          required: false
+          in: query
+          schema:
+            type: integer
+        - name: cache
+          description: 'Reset cache (if was enabled). <a href="https://github.com/nestjsx/crud/wiki/Requests#cache" target="_blank">Docs</a>'
+          required: false
+          in: query
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 1
+      responses:
+        '200':
+          description: Get paginated response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetManyFooResponseDto'
+      tags:
+        - Foo
+      security:
+        - auth0_jwt: []
+    post:
+      operationId: createFoo
+      summary: ''
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Foo'
+      responses:
+        '201':
+          description: Get create one base response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Foo'
+      tags:
+        - Foo
+      security:
+        - auth0_jwt: []
+  /api/foos/bulk:
+    post:
+      operationId: createFoos
+      summary: ''
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateManyFooDto'
+      responses:
+        '201':
+          description: Get create many base response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Foo'
+      tags:
+        - Foo
+      security:
+        - auth0_jwt: []
+info:
+  title: api-supercharger
+  description: REST API Supercharger
+  version: 0.0.1
+  contact:
+    name: Ognjen Bostjancic
+    url: 'https://ognjenbostjancic.com'
+    email: ognjen.bostjancic@gmail.com
+tags: []
+servers: []
+components:
+  securitySchemes:
+    auth0_jwt:
+      type: oauth2
+      flows:
+        implicit:
+          scopes:
+            'email': email
+            'openid': openid
+            'profile': profile
+          authorizationUrl: 'https://team8.eu.auth0.com/authorize?audience=https://team8-api.com'
+      x-google-issuer: 'https://team8.eu.auth0.com/'
+      x-google-jwks_uri: 'https://team8.eu.auth0.com/.well-known/jwks.json'
+      x-google-audiences: 'https://team8-api.com'
+  schemas:
+    GetManyBarResponseDto:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Bar'
+        count:
+          type: number
+        total:
+          type: number
+        page:
+          type: number
+        pageCount:
+          type: number
+      required:
+        - data
+        - count
+        - total
+        - page
+        - pageCount
+    Bar:
+      type: object
+      properties:
+        id:
+          type: number
+        created:
+          type: string
+          format: date
+        updated:
+          type: string
+          format: date
+        temp:
+          type: number
+      required:
+        - temp
+    CreateManyBarDto:
+      type: object
+      properties:
+        bulk:
+          type: array
+          items:
+            $ref: '#/components/schemas/Bar'
+      required:
+        - bulk
+    GetManyFooResponseDto:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Foo'
+        count:
+          type: number
+        total:
+          type: number
+        page:
+          type: number
+        pageCount:
+          type: number
+      required:
+        - data
+        - count
+        - total
+        - page
+        - pageCount
+    Foo:
+      type: object
+      properties:
+        id:
+          type: number
+        created:
+          type: string
+          format: date
+        updated:
+          type: string
+          format: date
+        name:
+          type: string
+      required:
+        - name
+    CreateManyFooDto:
+      type: object
+      properties:
+        bulk:
+          type: array
+          items:
+            $ref: '#/components/schemas/Foo'
+      required:
+        - bulk

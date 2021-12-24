@@ -2,7 +2,7 @@ import { ApiPropertyOptional } from '@nestjs/swagger';
 import { CreateDateColumn, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
 
 export class BaseEntity {
-  @ApiPropertyOptional({ type: 'number' })
+  @ApiPropertyOptional({ type: 'number', minimum: 0, maximum: 100000 })
   @PrimaryGeneratedColumn({ type: 'int' })
   id?: string;
 

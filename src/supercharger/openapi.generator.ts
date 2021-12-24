@@ -55,7 +55,7 @@ export const generateOpenapi = (app: INestApplication): OpenAPIObject => {
   if (process.env.NODE_ENV !== 'dev') {
     writeFileSync(`${process.cwd()}/openapi3.json`, JSON.stringify(document, null, 2));
     exec(
-      `openapi-generator generate -i ${process.cwd()}/openapi3.json -g typescript-axios -o ${process.cwd()}/client/api -p useSingleRequestParameter=true`
+      `openapi-generator generate -i ${process.cwd()}/openapi3.json -g typescript-axios -o ${process.cwd()}/../wings/client/api -p useSingleRequestParameter=true`
     );
   }
 
