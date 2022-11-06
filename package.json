@@ -42,7 +42,7 @@
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.1",
     "dotenv": "^16.0.0",
-    "jwks-rsa": "^2.0.5",
+    "jwks-rsa": "^3.0.0",
     "nest-access-control": "^2.0.2",
     "nestjs-typeorm-paginate": "^4.0.0",
     "passport": "^0.6.0",
